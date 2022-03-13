@@ -38,7 +38,13 @@
 /*galery*/
 @import url(/block/galery/galery.css);
 
-/*pop-up*/
+/*form*/
+@import url(/block/form/form.css);
+@import url(/block/form/__label/form__label.css);
+@import url(/block/form/__name/form__name.css);
+@import url(/block/form/__surname/form__surname.css);
 
+/*pop-up*/
+@import url(/block/pop-up/pop-up.css);
 /*copyright*/
 @import url(/block/copyright/copyright.css);
