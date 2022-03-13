@@ -1,0 +1,10 @@
+.profile-block__edit {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+  background-image: url(/image/profile/icons/Vector.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid white;
+}

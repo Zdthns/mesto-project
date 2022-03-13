@@ -1,0 +1,10 @@
+.profile-block__add {
+  align-self: center;
+  width: 150px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 2px;
+  background-image: url(/image/profile/icons/+.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}

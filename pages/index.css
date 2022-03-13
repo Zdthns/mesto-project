@@ -1,0 +1,44 @@
+@import url(/vendor/normalize.css);
+@import url(/fonts/fonts.css);
+
+/*page*/
+@import url(/block/page/page.css);
+
+/*content*/
+@import url(/block/content/content.css);
+
+
+/*header*/
+@import url(/block/header/header.css);
+@import url(/block/header/__logo/header__logo.css);
+
+/*line*/
+@import url(/block/line/line.css);
+
+/*profile-block*/
+@import url(/block/profile-block/profile-block.css);
+@import url(/block/profile-block/__add/profile-block__add.css);
+@import url(/block/profile-block/__avatar/profile-block__avatar.css);
+@import url(/block/profile-block/__edit/profile-block__edit.css);
+@import url(/block/profile-block/__img/profile-block__img.css);
+@import url(/block/profile-block/__info/profile-block__info.css);
+@import url(/block/profile-block/__subtitle/profile-block__subtitle.css);
+@import url(/block/profile-block/__title/profile-block__title.css);
+
+/*profile*/
+@import url(/block/profile/profile.css);
+
+/*card*/
+@import url(/block/card/card.css);
+@import url(/block/card/__image/card__image.css);
+@import url(/block/card/__title/card__title.css);
+@import url(/block/card/__like/card__like.css);
+@import url(/block/card/__name/card__name.css);
+
+/*galery*/
+@import url(/block/galery/galery.css);
+
+/*pop-up*/
+
+/*copyright*/
+@import url(/block/copyright/copyright.css);

@@ -1,0 +1,8 @@
+.card__like {
+  width: 22px;
+  height: 19px;
+  padding-right: 30px;
+  background-image: url(/image/galery/Vector.svg);
+  background-repeat: no-repeat;
+  align-self: center;
+}
