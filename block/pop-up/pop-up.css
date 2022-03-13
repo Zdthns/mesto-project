@@ -1,1 +1,6 @@
-.pop-up {}
+.pop-up {
+  margin: 0 auto;
+  max-width: 430px;
+  max-height: 330px;
+  background-color: white;
+}
