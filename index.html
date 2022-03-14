@@ -12,9 +12,24 @@
 <body class="page">
   <main class="content">
     <header class="header">
-      <img src="/image/logo/Vector.svg" alt="" class="header__logo">
+      <img src="/image/logo/Vector.svg" alt="Mesto" class="header__logo">
     </header>
-    <div class="line"></div>
+    <section class="pop-up">
+      <form action="" class="form">
+        <h2 class="form__title">Редактировать профиль</h2>
+        <fieldset class="form__autor-info">
+          <label for="name" class="form__label">
+            <input class="form__item" name="name" id="name" type="text" placeholder="Жак-Ив Кусто" required>
+          </label>
+          <label for="surname" class="form__label">
+            <input class="form__item" name="surname" id="surname" type="text" placeholder="Исследователь океана"
+              required>
+          </label>
+        </fieldset>
+        <button class="form__save">Сохранить</button>
+      </form>
+      <button class="pop-up__close"></button>
+    </section>
     <section class="profile">
       <div class="profile-block">
         <img src="/image/profile/kusto.jpg" alt="Фото профиля" class="profile-block__img">
@@ -29,20 +44,6 @@
 
       </div>
       <div class="profile-block__add"></div>
-    </section>
-    <section class="edit">
-      <div class="pop-up">
-        <form action="" class="form">
-          <h2 class="form__title">Редактировать профиль</h2>
-          <label for="name" class="form__label">
-            <input class="form__item" name="name" id="name" type="text" placeholder="Жак-Ив Кусто">
-          </label>
-          <label for="surname" class="form__label">
-            <input class="form__item" name="surname" id="surname" type="text" placeholder="Исследователь океана">
-          </label>
-        </form>
-      </div>
-
     </section>
     <section class="galery">
       <div class="card">

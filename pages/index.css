@@ -40,14 +40,17 @@
 
 /*form*/
 @import url(/block/form/form.css);
+@import url(/block/form/__autor-info/form__autor-info.css);
 @import url(/block/form/__label/form__label.css);
 @import url(/block/form/__name/form__name.css);
 @import url(/block/form/__title/form__title.css);
 @import url(/block/form/__surname/form__surname.css);
 @import url(/block/form/__item/form__item.css);
+@import url(/block/form/__save/form__save.css);
 
 /*pop-up*/
 @import url(/block/pop-up/pop-up.css);
+@import url(/block/pop-up/__close/pop-up__close.css);
 
 /*edit*/
 @import url(/block/edit/edit.css);

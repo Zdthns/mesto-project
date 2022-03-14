@@ -1,6 +1,8 @@
 .pop-up {
-  margin: 0 auto;
+  display: flex;
+  position: absolute;
+  top: 195px;
+  right: 425px;
   max-width: 430px;
-  max-height: 330px;
-  background-color: white;
+
 }
