@@ -14,21 +14,22 @@
     <header class="header">
       <img src="/image/logo/Vector.svg" alt="Mesto" class="header__logo">
     </header>
-    <section class="pop-up">
-      <form action="" class="form">
-        <h2 class="form__title">Редактировать профиль</h2>
-        <fieldset class="form__autor-info">
-          <label for="name" class="form__label">
-            <input class="form__item" name="name" id="name" type="text" placeholder="Жак-Ив Кусто" required>
-          </label>
-          <label for="surname" class="form__label">
-            <input class="form__item" name="surname" id="surname" type="text" placeholder="Исследователь океана"
-              required>
-          </label>
-        </fieldset>
-        <button class="form__save">Сохранить</button>
-      </form>
-      <button class="pop-up__close"></button>
+    <section class="pop-up pop-up_opened">
+      <div class="pop-up__container">
+        <button class="pop-up__close"></button>
+        <div class="form__container">
+          <form action="#" id="form__autor-info" class="form">
+            <h2 class="form__title">Редактировать профиль</h2>
+            <fieldset class="form__autor-info">
+              <input class="form__item" name="name" id="name" type="text" placeholder="Жак-Ив Кусто" required>
+              <input class="form__item" name="surname" id="surname" type="text" placeholder="Исследователь океана"
+                required>
+            </fieldset>
+          </form>
+          <button form="form__autor-info" class="form__save">Сохранить</button>
+        </div>
+      </div>
+
     </section>
     <section class="profile">
       <div class="profile-block">

@@ -39,6 +39,7 @@
 @import url(/block/galery/galery.css);
 
 /*form*/
+@import url(/block/form/__container/form__container.css);
 @import url(/block/form/form.css);
 @import url(/block/form/__autor-info/form__autor-info.css);
 @import url(/block/form/__label/form__label.css);
@@ -50,6 +51,8 @@
 
 /*pop-up*/
 @import url(/block/pop-up/pop-up.css);
+@import url(/block/pop-up/__container/pop-up__container.css);
+@import url(/block/pop-up/_opened/pop-up_opened.css);
 @import url(/block/pop-up/__close/pop-up__close.css);
 
 /*edit*/

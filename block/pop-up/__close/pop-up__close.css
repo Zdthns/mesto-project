@@ -1,12 +1,12 @@
 .pop-up__close {
-  display: inline-block;
   padding: 0;
+  margin-right: -40px;
+  align-self: flex-end;
   width: 32px;
   height: 32px;
   background-image: url(/image/form/Close.svg);
   background-color: black;
-  border: none;
+  border: 0;
   background-repeat: no-repeat;
   background-position: center;
-
 }

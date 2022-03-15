@@ -1,8 +1,5 @@
 .pop-up {
-  display: flex;
-  position: absolute;
-  top: 195px;
-  right: 425px;
-  max-width: 430px;
-
+  padding: 1%;
+  display: none;
+  opacity: 8;
 }
