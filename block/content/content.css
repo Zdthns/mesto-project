@@ -2,3 +2,33 @@
   margin: 0 auto;
   padding: 0 200px;
 }
+
+@media (max-width: 1279px) {
+  .content {
+    padding: 0 150px;
+  }
+}
+
+@media (max-width: 987px) {
+  .content {
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 676px) {
+  .content {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 425px) {
+  .content {
+    padding: 0 19px;
+  }
+}
+
+@media (max-width: 319px) {
+  .content {
+    padding: 0;
+  }
+}

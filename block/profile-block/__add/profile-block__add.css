@@ -1,10 +1,36 @@
 .profile-block__add {
   align-self: center;
-  width: 150px;
   height: 50px;
+  background-color: black;
   border: 2px solid white;
-  border-radius: 2px;
+  border-radius: 2%;
   background-image: url(/image/profile/icons/+.svg);
   background-repeat: no-repeat;
   background-position: center;
+
+}
+
+.profile-block__add:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 987px) {
+  .profile-block__add {
+    margin: 0 auto;
+    width: 70%;
+  }
+}
+
+@media (max-width: 676px) {
+  .profile-block__add {
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+@media (max-width: 425px) {
+  .profile-block__add {
+    margin: 0 auto;
+    width: 80%;
+  }
 }

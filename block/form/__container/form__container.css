@@ -1,5 +1,6 @@
 .form__container {
   border-radius: 3%;
   background-color: white;
-  padding: 34px 36px 37px;
+  padding: 35px 36px 37px;
+  border: 1px solid red;
 }

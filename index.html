@@ -14,79 +14,86 @@
     <header class="header">
       <img src="/image/logo/Vector.svg" alt="Mesto" class="header__logo">
     </header>
-    <section class="pop-up pop-up_opened">
-      <div class="pop-up__container">
-        <button class="pop-up__close"></button>
-        <div class="form__container">
-          <form action="#" id="form__autor-info" class="form">
-            <h2 class="form__title">Редактировать профиль</h2>
-            <fieldset class="form__autor-info">
-              <input class="form__item" name="name" id="name" type="text" placeholder="Жак-Ив Кусто" required>
-              <input class="form__item" name="surname" id="surname" type="text" placeholder="Исследователь океана"
-                required>
-            </fieldset>
-          </form>
-          <button form="form__autor-info" class="form__save">Сохранить</button>
-        </div>
+    <section class="profile">
+      <div class="profile-block__avatar"> <img src="/image/profile/kusto.jpg" alt="Фото профиля"
+          class="profile-block__img">
       </div>
 
-    </section>
-    <section class="profile">
       <div class="profile-block">
-        <img src="/image/profile/kusto.jpg" alt="Фото профиля" class="profile-block__img">
+
         <ol class="profile-block__info">
           <li>
-            <h2 class="profile-block__title">Жак-Ив Кусто <span class="profile-block__edit"></span></h2>
+            <h2 class="profile-block__title">Жак-Ив Кусто </h2>
           </li>
+          <button class="profile-block__edit"></button>
           <li>
             <p class="profile-block__subtitle">Исследователь океана</p>
           </li>
         </ol>
 
       </div>
-      <div class="profile-block__add"></div>
+      <button class="profile-block__add"></button>
     </section>
+    <section class="overlay">
+      <div class="pop-up">
+        <div class="pop-up__container">
+          <button class="pop-up__close"></button>
+          <div class="form__container">
+            <h2 class="form__title">Редактировать профиль</h2>
+            <form action="#" id="form__autor-info" class="form">
+              <fieldset class="form__autor-info">
+                <input class="form__item" name="name" id="name" type="text" placeholder="Жак-Ив Кусто" required>
+                <input class="form__item" name="surname" id="surname" type="text" placeholder="Исследователь океана"
+                  required>
+              </fieldset>
+            </form>
+            <button form="form__autor-info" class="form__save">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="galery">
       <div class="card">
         <img src="/image/galery/karachaevsk.jpg" alt="" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Карачаевск</h2>
-          <div class="card__like"></div>
+          <div class="card__like card__like_activ"></div>
         </div>
       </div>
       <div class="card">
         <img src="/image/galery/elbrus.jpg" alt="" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Гора Эльбрус</h2>
-          <div class="card__like"></div>
+          <div class="card__like card__like_activ"></div>
         </div>
       </div>
       <div class="card">
         <img src="/image/galery/dombay.jpg" alt="" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Домбай</h2>
-          <div class="card__like"></div>
+          <div class="card__like card__like_activ"></div>
         </div>
       </div>
       <div class="card">
         <img src="/image/galery/baikal.jpg" alt="" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Байкал</h2>
-          <div class="card__like"></div>
+          <div class="card__like card__like_activ"></div>
         </div>
       </div>
       <div class="card">
         <img src="/image/galery/silma.jpg" alt="" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Сильма-Озеро в Шатурском районе</h2>
-          <div class="card__like"></div>
+          <div class="card__like card__like_activ"></div>
         </div>
       </div>
       <div class="card">
         <img src="/image/galery/seliger.jpg" alt="" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Селигер</h2>
-          <div class="card__like"></div>
+          <div class="card__like card__like_activ"></div>
         </div>
       </div>
     </section>

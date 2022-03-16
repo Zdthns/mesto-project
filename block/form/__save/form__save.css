@@ -1,10 +1,14 @@
 .form__save {
   width: 100%;
+  border: 0;
   color: white;
   background-color: black;
   padding: 14px 0 14px;
   font-family: 'Inter';
   font-size: 18px;
   line-height: 22px;
+}
 
+.form__save:hover {
+  opacity: 0.5;
 }

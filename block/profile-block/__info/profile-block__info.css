@@ -1,5 +1,8 @@
 .profile-block__info {
   margin: 0;
+  max-width: 100%;
   list-style: none;
   align-self: center;
+  display: grid;
+  grid-template-columns: 90% 10%;
 }

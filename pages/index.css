@@ -33,6 +33,7 @@
 @import url(/block/card/__image/card__image.css);
 @import url(/block/card/__title/card__title.css);
 @import url(/block/card/__like/card__like.css);
+@import url(/block/card/__like/_activ/card__like_activ.css);
 @import url(/block/card/__name/card__name.css);
 
 /*galery*/
@@ -54,6 +55,8 @@
 @import url(/block/pop-up/__container/pop-up__container.css);
 @import url(/block/pop-up/_opened/pop-up_opened.css);
 @import url(/block/pop-up/__close/pop-up__close.css);
+
+@import url(/block/overlay/overlay.css);
 
 /*edit*/
 @import url(/block/edit/edit.css);

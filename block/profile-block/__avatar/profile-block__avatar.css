@@ -1,4 +1,4 @@
 .profile-block__avatar {
-  width: 168px;
-  height: 127;
+  display: flex;
+  justify-content: center;
 }

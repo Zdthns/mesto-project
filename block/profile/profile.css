@@ -1,5 +1,20 @@
 .profile {
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 47px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+@media (max-width: 987px) {
+  .profile {
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 987px) {
+  .profile {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 }

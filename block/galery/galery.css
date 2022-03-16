@@ -1,6 +1,16 @@
 .galery {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
   margin-bottom: 67px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 17px 20px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  gap: 20px 17px;
+}
+
+@media (max-width: 425px) {
+  .galery {
+    margin-bottom: 48px;
+  }
 }

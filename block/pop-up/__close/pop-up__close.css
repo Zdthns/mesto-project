@@ -1,12 +1,18 @@
 .pop-up__close {
   padding: 0;
   margin-right: -40px;
-  align-self: flex-end;
   width: 32px;
   height: 32px;
   background-image: url(/image/form/Close.svg);
   background-color: black;
   border: 0;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
+}
+
+@media (max-width: 378px) {
+  .pop-up__close {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
 }
