@@ -4,10 +4,14 @@
   width: 32px;
   height: 32px;
   background-image: url(/image/form/Close.svg);
-  background-color: black;
+  background-color: transparent;
   border: 0;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.pop-up__close:hover {
+  opacity: 0.5;
 }
 
 @media (max-width: 378px) {
