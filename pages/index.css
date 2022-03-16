@@ -12,9 +12,6 @@
 @import url(/block/header/header.css);
 @import url(/block/header/__logo/header__logo.css);
 
-/*line*/
-@import url(/block/line/line.css);
-
 /*profile-block*/
 @import url(/block/profile-block/profile-block.css);
 @import url(/block/profile-block/__add/profile-block__add.css);
@@ -57,9 +54,6 @@
 @import url(/block/pop-up/__close/pop-up__close.css);
 
 @import url(/block/overlay/overlay.css);
-
-/*edit*/
-@import url(/block/edit/edit.css);
 
 /*copyright*/
 @import url(/block/copyright/copyright.css);
