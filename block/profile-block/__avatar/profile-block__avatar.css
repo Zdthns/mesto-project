@@ -1,4 +1,5 @@
 .profile-block__avatar {
+
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
