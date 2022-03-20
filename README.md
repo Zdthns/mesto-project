@@ -1,5 +1,5 @@
 # Проект: Место
-https://github.com/Zdthns/mesto-project.git
+https://github.com/Zdthns/mesto-project
 создан в рамках обучения по программе "Веб-разработчик" 
 ### Верстка
  по макету из Figma
