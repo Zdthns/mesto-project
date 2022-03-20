@@ -1,59 +1,59 @@
-@import url(/vendor/normalize.css);
-@import url(/fonts/fonts.css);
+@import url(../vendor/normalize.css);
+@import url(../fonts/fonts.css);
 
 /*page*/
-@import url(/block/page/page.css);
+@import url(../blocks/page/page.css);
 
 /*content*/
-@import url(/block/content/content.css);
+@import url(../blocks/content/content.css);
 
 
 /*header*/
-@import url(/block/header/header.css);
-@import url(/block/header/__logo/header__logo.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
 
 /*profile-block*/
-@import url(/block/profile-block/profile-block.css);
-@import url(/block/profile-block/__add/profile-block__add.css);
-@import url(/block/profile-block/__avatar/profile-block__avatar.css);
-@import url(/block/profile-block/__edit/profile-block__edit.css);
-@import url(/block/profile-block/__img/profile-block__img.css);
-@import url(/block/profile-block/__info/profile-block__info.css);
-@import url(/block/profile-block/__subtitle/profile-block__subtitle.css);
-@import url(/block/profile-block/__title/profile-block__title.css);
+@import url(../blocks/profile-block/profile-block.css);
+@import url(../blocks/profile-block/__add/profile-block__add.css);
+@import url(../blocks/profile-block/__avatar/profile-block__avatar.css);
+@import url(../blocks/profile-block/__edit/profile-block__edit.css);
+@import url(../blocks/profile-block/__img/profile-block__img.css);
+@import url(../blocks/profile-block/__info/profile-block__info.css);
+@import url(../blocks/profile-block/__subtitle/profile-block__subtitle.css);
+@import url(../blocks/profile-block/__title/profile-block__title.css);
 
 /*profile*/
-@import url(/block/profile/profile.css);
+@import url(../blocks/profile/profile.css);
 
 /*card*/
-@import url(/block/card/card.css);
-@import url(/block/card/__image/card__image.css);
-@import url(/block/card/__title/card__title.css);
-@import url(/block/card/__like/card__like.css);
-@import url(/block/card/__like/_activ/card__like_activ.css);
-@import url(/block/card/__name/card__name.css);
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/card/__like/card__like.css);
+@import url(../blocks/card/__like/_activ/card__like_activ.css);
+@import url(../blocks/card/__name/card__name.css);
 
 /*galery*/
-@import url(/block/galery/galery.css);
+@import url(../blocks/galery/galery.css);
 
 /*form*/
-@import url(/block/form/__container/form__container.css);
-@import url(/block/form/form.css);
-@import url(/block/form/__autor-info/form__autor-info.css);
-@import url(/block/form/__label/form__label.css);
-@import url(/block/form/__name/form__name.css);
-@import url(/block/form/__title/form__title.css);
-@import url(/block/form/__surname/form__surname.css);
-@import url(/block/form/__item/form__item.css);
-@import url(/block/form/__save/form__save.css);
+@import url(../blocks/form/__container/form__container.css);
+@import url(../blocks/form/form.css);
+@import url(../blocks/form/__autor-info/form__autor-info.css);
+@import url(../blocks/form/__label/form__label.css);
+@import url(../blocks/form/__name/form__name.css);
+@import url(../blocks/form/__title/form__title.css);
+@import url(../blocks/form/__surname/form__surname.css);
+@import url(../blocks/form/__item/form__item.css);
+@import url(../blocks/form/__save/form__save.css);
 
 /*pop-up*/
-@import url(/block/pop-up/pop-up.css);
-@import url(/block/pop-up/__container/pop-up__container.css);
-@import url(/block/pop-up/_opened/pop-up_opened.css);
-@import url(/block/pop-up/__close/pop-up__close.css);
+@import url(../blocks/pop-up/pop-up.css);
+@import url(../blocks/pop-up/__container/pop-up__container.css);
+@import url(../blocks/pop-up/_opened/pop-up_opened.css);
+@import url(../blocks/pop-up/__close/pop-up__close.css);
 
-@import url(/block/overlay/overlay.css);
+@import url(../blocks/overlay/overlay.css);
 
 /*copyright*/
-@import url(/block/copyright/copyright.css);
+@import url(../blocks/copyright/copyright.css);
