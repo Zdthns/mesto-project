@@ -1,7 +1,7 @@
 .card__like {
   width: 22px;
   height: 19px;
-  background-image: url(/image/galery/vec.svg);
+  background-image: url(./image/galery/vec.svg);
   background-repeat: no-repeat;
   align-self: center;
 }
