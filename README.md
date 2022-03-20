@@ -8,7 +8,7 @@ https://github.com/Zdthns/mesto-project.git
  оптимизация  картинок (https://tinypng.com/).
 
 ***использованы техники:***
-Flex
+Flex, 
 Grid
  #### Планируемые доработки
  доработки на JS;
