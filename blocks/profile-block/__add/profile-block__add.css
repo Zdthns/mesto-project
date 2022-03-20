@@ -4,7 +4,7 @@
   background-color: black;
   border: 2px solid white;
   border-radius: 2%;
-  background-image: url(./image/profile/icons/plus.svg);
+  background-image: url(../../../image/profile/icons/plus.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
