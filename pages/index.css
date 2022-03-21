@@ -12,18 +12,17 @@
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 
-/*profile-block*/
-@import url(../blocks/profile-block/profile-block.css);
-@import url(../blocks/profile-block/__add/profile-block__add.css);
-@import url(../blocks/profile-block/__avatar/profile-block__avatar.css);
-@import url(../blocks/profile-block/__edit/profile-block__edit.css);
-@import url(../blocks/profile-block/__img/profile-block__img.css);
-@import url(../blocks/profile-block/__info/profile-block__info.css);
-@import url(../blocks/profile-block/__subtitle/profile-block__subtitle.css);
-@import url(../blocks/profile-block/__title/profile-block__title.css);
-
 /*profile*/
 @import url(../blocks/profile/profile.css);
+@import url(/blocks/profile/__block/profile__block.css);
+@import url(../blocks/profile/__add/profile__add.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__edit/profile__edit.css);
+@import url(../blocks/profile/__img/profile__img.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__subtitle/profile__subtitle.css);
+@import url(../blocks/profile/__title/profile__title.css);
+
 
 /*card*/
 @import url(../blocks/card/card.css);
@@ -37,23 +36,19 @@
 @import url(../blocks/galery/galery.css);
 
 /*form*/
-@import url(../blocks/form/__container/form__container.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__autor-info/form__autor-info.css);
-@import url(../blocks/form/__label/form__label.css);
-@import url(../blocks/form/__name/form__name.css);
-@import url(../blocks/form/__title/form__title.css);
-@import url(../blocks/form/__surname/form__surname.css);
 @import url(../blocks/form/__item/form__item.css);
 @import url(../blocks/form/__save/form__save.css);
 
 /*pop-up*/
+@import url(/blocks/pop-up/__form-container/pop-up__form-container.css);
+@import url(/blocks/pop-up/__form-title/pop-up__form-title.css);
 @import url(../blocks/pop-up/pop-up.css);
 @import url(../blocks/pop-up/__container/pop-up__container.css);
 @import url(../blocks/pop-up/_opened/pop-up_opened.css);
 @import url(../blocks/pop-up/__close/pop-up__close.css);
 
-@import url(../blocks/overlay/overlay.css);
 
-/*copyright*/
-@import url(../blocks/copyright/copyright.css);
+/*footer*/
+@import url(../blocks/footer/__copyright/footer__copyright.css);

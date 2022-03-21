@@ -10,98 +10,87 @@
 </head>
 
 <body class="page">
+  <header class="header">
+    <img src="image/logo/Vector.svg" alt="Meсто" class="header__logo">
+  </header>
   <main class="content">
-    <header class="header">
-      <img src="image/logo/Vector.svg" alt="Meсто" class="header__logo">
-    </header>
     <section class="profile">
-      <div class="profile-block__avatar"> <img src="image/profile/kusto.jpg" alt="Фото профиля"
-          class="profile-block__img">
-      </div>
-
-      <div class="profile-block">
-
-        <ol class="profile-block__info">
-          <li>
-            <h2 class="profile-block__title">Жак-Ив Кусто </h2>
-          </li>
-          <button class="profile-block__edit"></button>
-          <li>
-            <p class="profile-block__subtitle">Исследователь океана</p>
-          </li>
-        </ol>
-
-      </div>
-      <button class="profile-block__add"></button>
-    </section>
-    <section class="overlay">
-      <div class="pop-up">
-        <div class=" pop-up__container">
-          <button class="pop-up__close"></button>
-          <div class="form__container">
-            <h2 class="form__title">Редактировать профиль</h2>
-            <form action="#" id="form__autor-info" class="form">
-              <fieldset class="form__autor-info">
-                <input class="form__item" name="name" id="name" type="text" value="#" placeholder="Жак-Ив Кусто"
-                  required>
-                <input class="form__item" name="surname" id="surname" type="text" value="#"
-                  placeholder="Исследователь океана" required>
-              </fieldset>
-            </form>
-            <button form="form__autor-info" class="form__save">Сохранить</button>
-          </div>
+      <div class="profile__block">
+        <img src="image/profile/kusto.jpg" alt="Фото профиля" class="profile__img">
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто </h1>
+          <button aria-label="edit" type="button" class="profile__edit"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
       </div>
+      <button aria-label="add" type="button" class="profile__add"></button>
     </section>
-
     <section class="galery">
-      <div class="card">
+      <article class="card">
         <img src="image/galery/karachaevsk.jpg" alt="Карачаевск" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Карачаевск</h2>
-          <div class="card__like"></div>
+          <button type="button" class="card__like"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./image/galery/elbrus.jpg" alt="Эльбрус" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Гора Эльбрус</h2>
-          <div class="card__like "></div>
+          <button type="button" class="card__like "></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./image/galery/dombay.jpg" alt="" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Домбай</h2>
-          <div class="card__like "></div>
+          <button type="button" class="card__like "></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./image/galery/baikal.jpg" alt="Байкал" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Байкал</h2>
-          <div class="card__like"></div>
+          <button type="button" class="card__like"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./image/galery/silma.jpg" alt="Сильма-Озеро" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Сильма-Озеро в Шатурском районе</h2>
-          <div class="card__like"></div>
+          <button type="button" class="card__like"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./image/galery/seliger.jpg" alt="Селигер" class="card__image">
         <div class="card__title">
           <h2 class="card__name">Селигер</h2>
-          <div class="card__like card__like_activ"></div>
+          <button type="button" class="card__like"></button>
         </div>
-      </div>
+      </article>
     </section>
-    <footer class="footer">
-      <p class="copyright">© 2020 Mesto Russia</p>
-    </footer>
   </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
+  </footer>
+  <section class="pop-up">
+    <div class="pop-up__container">
+      <button aria-label="close" class="pop-up__close"></button>
+      <div class="pop-up__form-container">
+        <h2 class="pop-up__form-title">Редактировать профиль</h2>
+        <form action="#" id="form__autor-info" class="form">
+          <fieldset class="form__autor-info">
+            <input class="form__item" name="name" id="name" type="text" value="" placeholder="Введите свое имя"
+              required>
+            <input class="form__item" name="surname" id="surname" type="text" value=""
+              placeholder="Дополнительная информация" required>
+            <button type="submit" form="form__autor-info" class="form__save">Сохранить</button>
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+  </section>
 </body>
 
 </html>

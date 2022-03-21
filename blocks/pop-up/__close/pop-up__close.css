@@ -3,7 +3,7 @@
   margin-right: -40px;
   width: 32px;
   height: 32px;
-  background-image: url(/image/form/Close.svg);
+  background-image: url(../../../image/form/Close.svg);
   background-color: transparent;
   border: 0;
   background-repeat: no-repeat;
@@ -11,7 +11,7 @@
 }
 
 .pop-up__close:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 @media (max-width: 378px) {

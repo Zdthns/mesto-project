@@ -4,11 +4,19 @@
   color: white;
   background-color: black;
   padding: 14px 0 14px;
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 18px;
   line-height: 22px;
+  border-radius: 1.5%;
 }
 
 .form__save:hover {
-  opacity: 0.5;
+  opacity: 0.8;
+}
+
+@media (max-width: 425px) {
+  .form__save {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

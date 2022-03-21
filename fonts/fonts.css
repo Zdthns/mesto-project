@@ -1,6 +1,28 @@
-@import url(./Inter/Inter-Bold/fonts.css);
-@import url(./Inter/Inter-Medium/fonts.css);
-@import url(./Inter/Inter-Regular/fonts.css);
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Black.eot");
+  src: local("☺"), url("/fonts/fonts/Inter-Black.woff") format("woff"),
+    url("/fonts/fonts/Inter-Black.ttf") format("truetype"),
+    url("/fonts/fonts/Inter-Black.woff2") format("woff2"),
+    url("/fonts/fonts/Inter-Black.svg") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
 
-@import url(./arial/arial.ttf);
-@import url(./Sans_Serif/microsoftsansserif.ttf);
+@font-face {
+  font-family: 'Inter-Medium';
+  src: url('fonts/Inter-Medium.eot');
+  src: local('☺'), url('fonts/Inter-Medium.woff') format('woff'), url('fonts/Inter-Medium.ttf') format('truetype'), url('fonts/Inter-Medium.svg') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Regular.eot');
+  src: local('☺'), url('fonts/Inter-Regular.woff') format('woff'),
+    url('fonts/Inter-Regular.ttf') format('truetype'),
+    url('fonts/Inter-Regular.svg') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}

@@ -4,10 +4,10 @@
   width: 100%;
   border: 0;
   box-sizing: border-box;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgb(0%, 0%, 0%, 0.2);
   background-color: transparent;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
 }
