@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Inter";
   src: url("fonts/Inter-Black.eot");
-  src: local("☺"), url("fonts/fonts/Inter-Black.woff") format("woff"),
-    url("fonts/fonts/Inter-Black.ttf") format("truetype"),
-    url("fonts/fonts/Inter-Black.woff2") format("woff2"),
-    url("fonts/fonts/Inter-Black.svg") format("svg");
+  src: local("☺"), url("fonts/Inter-Black.woff") format("woff"),
+    url("fonts/Inter-Black.ttf") format("truetype"),
+    url("fonts/Inter-Black.woff2") format("woff2"),
+    url("fonts/Inter-Black.svg") format("svg");
   font-weight: 900;
   font-style: normal;
 }
