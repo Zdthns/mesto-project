@@ -6,3 +6,28 @@
   line-height: 22px;
   color: #545454;
 }
+
+
+@media (max-width: 1279px) {
+  .footer__copyright {
+    padding-left: 100px;
+  }
+}
+
+@media (max-width: 987px) {
+  .footer__copyright {
+    padding-left: 50px;
+  }
+}
+
+@media (max-width: 676px) {
+  .footer__copyright {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .footer__copyright {
+    padding-left: 19px;
+  }
+}
