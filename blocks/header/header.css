@@ -1,3 +1,13 @@
 .header {
+  display: flex;
+  flex-direction: column;
   padding-top: 45px;
+  margin: 0 15.6%;
+}
+
+@media (max-width: 425px) {
+  .header {
+    margin: 0;
+    padding-top: 28px;
+  }
 }

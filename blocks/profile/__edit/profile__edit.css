@@ -1,8 +1,9 @@
 .profile__edit {
-  padding: 0;
+
   width: 24px;
   height: 24px;
   margin: 0 8px;
+  align-self: flex-end;
   background-color: transparent;
   background-image: url(../../../image/profile/icons/vect.svg);
   background-repeat: no-repeat;
@@ -12,4 +13,13 @@
 
 .profile__edit:hover {
   opacity: 0.5;
+
+}
+
+@media (max-width: 425px) {
+  .profile__edit {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+  }
 }

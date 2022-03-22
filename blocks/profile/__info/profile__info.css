@@ -5,7 +5,7 @@
   list-style: none;
   align-self: center;
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: 93% 7%;
 }
 
 @media (max-width: 425px) {

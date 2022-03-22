@@ -17,10 +17,10 @@
 }
 
 
-@media (max-width: 765px) {
+@media (max-width: 425px) {
   .profile__add {
     margin: 36px auto 0;
-    width: 80%;
+    width: 100%;
 
   }
 }
