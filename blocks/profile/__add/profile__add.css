@@ -16,11 +16,9 @@
   opacity: 0.6;
 }
 
-
 @media (max-width: 875px) {
   .profile__add {
     margin: 31px auto 0;
     width: 100%;
-
   }
 }
