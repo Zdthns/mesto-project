@@ -2,16 +2,14 @@
   margin-left: 31px;
   margin-top: 25px;
   padding: 0;
-  max-width: 100%;
-  min-width: 282px;
-  display: grid;
-  grid-template-columns: 90% 10%;
-  grid-auto-flow: row;
+  max-width: 336px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 425px) {
   .profile__info {
-    text-align: center;
+    justify-content: center;
     margin-top: 25px;
     margin-left: 0;
   }

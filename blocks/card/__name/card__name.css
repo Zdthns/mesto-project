@@ -1,6 +1,7 @@
 .card__name {
   display: block;
-  margin: 31px 0px 25px 6px;
+  margin: 0;
+  padding: 31px 0px 25px 6px;
   width: 90%;
   font-weight: 900;
   font-size: 24px;
@@ -8,4 +9,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 425px) {
+  .card__name {
+    padding: 23px 6px;
+  }
 }

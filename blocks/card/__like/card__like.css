@@ -12,3 +12,8 @@
 .card__like:hover {
   opacity: 0.5;
 }
+
+@media (max-width: 425px) {
+  .card__like {
+    margin: 28px 6px;
+  }

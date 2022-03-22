@@ -1,6 +1,7 @@
 .profile__title {
   margin: 0;
   padding: 0;
+  padding-right: 23px;
   max-width: 500px;
   font-weight: 500;
   font-size: 42px;
@@ -15,5 +16,9 @@
   .profile__title {
     font-size: 27px;
     line-height: 33px;
+    max-width: 282px;
+    padding-right: 0px;
+    padding-left: 30px;
+
   }
 }
