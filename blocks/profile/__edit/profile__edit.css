@@ -2,13 +2,13 @@
 
   width: 24px;
   height: 24px;
-  margin: 0 8px;
-  align-self: flex-end;
+  margin: 13px 8px 0 0;
   background-color: transparent;
   background-image: url(../../../image/profile/icons/vect.svg);
   background-repeat: no-repeat;
   background-position: center;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .profile__edit:hover {
@@ -20,6 +20,6 @@
   .profile__edit {
     width: 18px;
     height: 18px;
-    margin-left: 10px;
+    margin-left: 5px;
   }
 }

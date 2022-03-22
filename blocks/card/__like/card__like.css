@@ -2,10 +2,11 @@
   width: 22px;
   height: 19px;
   border: 0;
+  margin: 36px 5px;
   background-color: transparent;
   background-image: url(../../../image/galery/vec.svg);
   background-repeat: no-repeat;
-  align-self: center;
+  cursor: pointer;
 }
 
 .card__like:hover {

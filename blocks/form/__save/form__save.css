@@ -8,6 +8,7 @@
   font-size: 18px;
   line-height: 22px;
   border-radius: 1.5%;
+  cursor: pointer;
 }
 
 .form__save:hover {

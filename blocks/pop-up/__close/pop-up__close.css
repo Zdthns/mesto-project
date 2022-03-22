@@ -8,6 +8,7 @@
   border: 0;
   background-repeat: no-repeat;
   background-position: center center;
+  cursor: pointer;
 }
 
 .pop-up__close:hover {
