@@ -12,7 +12,6 @@
 <body class="page">
   <header class="header">
     <img src="./image/logo/Vector.svg" alt="Meсто" class="header__logo">
-    <img src="./image/line/Line.svg" alt="линия" class="header__line">
   </header>
   <main class="content">
     <section class="profile">
@@ -26,8 +25,7 @@
       </div>
       <button aria-label="add" type="button" class="profile__add"></button>
     </section>
-    <section class="galery">
-      <h2 class="visually-hidden">Фото галерея</h2>
+    <section aria-label="Фотографии" class="galery">
       <article class="card">
         <img src="./image/galery/karachaevsk.jpg" alt="Карачаевск" class="card__image">
         <div class="card__title">
@@ -77,7 +75,7 @@
   </footer>
   <div class="pop-up">
     <div class="pop-up__container">
-      <button aria-label="close" class="pop-up__close"></button>
+      <button aria-label="close" type="button" class="pop-up__close"></button>
       <div class="pop-up__form-container">
         <h2 class="pop-up__form-title">Редактировать профиль</h2>
         <form action="#" id="form__autor-info" class="form">

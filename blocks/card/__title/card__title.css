@@ -1,7 +1,5 @@
 .card__title {
   margin: 0 15px;
-  max-height: 80px;
-  min-height: 79px;
   display: flex;
   justify-content: space-around;
 }
