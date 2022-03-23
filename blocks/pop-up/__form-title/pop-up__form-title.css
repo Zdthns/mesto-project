@@ -1,7 +1,15 @@
 .pop-up__form-title {
-  margin: 0;
-  padding-bottom: 48px;
+  margin: 0 auto;
+  padding-bottom: 45px;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
+}
+
+@media (max-width: 425px) {
+  .pop-up__form-title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 75px;
+  }
 }

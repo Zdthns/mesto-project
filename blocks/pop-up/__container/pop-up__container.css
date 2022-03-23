@@ -1,9 +1,10 @@
 .pop-up__container {
-  max-width: 400px;
+  margin: 0 auto;
+  max-width: 430px;
   display: grid;
   justify-items: end;
   border-radius: 3%;
-  box-shadow: 0px 0px 25px;
+  box-shadow: 0px 0px 28px;
 }
 
 @media (max-width: 495px) {

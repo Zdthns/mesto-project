@@ -1,6 +1,7 @@
 .pop-up__close {
   padding: 0;
   margin-right: -40px;
+  margin-bottom: 8px;
   width: 32px;
   height: 32px;
   background-image: url(../../../image/form/Close.svg);
@@ -15,9 +16,11 @@
   opacity: 0.6;
 }
 
-@media (max-width: 378px) {
+@media (max-width: 425px) {
   .pop-up__close {
     margin-right: 0;
     margin-bottom: 16px;
+    width: 20px;
+    height: 20px;
   }
 }
