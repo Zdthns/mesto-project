@@ -8,10 +8,15 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 538px) {
+@media (max-width: 545px) {
   .profile__info {
     justify-content: center;
     margin-left: 0;
-    margin-top: 25px;
+  }
+}
+
+@media (max-width: 425px) {
+  .profile__info {
+    margin-left: 28px;
   }
 }

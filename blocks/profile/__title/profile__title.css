@@ -1,7 +1,7 @@
 .profile__title {
   margin: 0;
   padding: 0;
-  padding-right: 23px;
+  margin-right: 21px;
   max-width: 500px;
   font-weight: 500;
   font-size: 42px;
@@ -16,8 +16,17 @@
   .profile__title {
     font-size: 27px;
     line-height: 33px;
+    margin-right: 18px;
     max-width: 282px;
-    padding-right: 0px;
-    padding-left: 0px;
   }
 }
+
+@media (max-width: 554px) {
+  .profile__title {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .profile__title {
+    margin-right: 10px;

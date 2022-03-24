@@ -2,7 +2,8 @@
   padding: 0;
   width: 24px;
   height: 24px;
-  margin: 0 0 7px;
+  margin: 0;
+  margin-bottom: 5px;
   align-self: center;
   background-color: transparent;
   background-image: url(../../../image/profile/icons/vect.svg);
@@ -17,13 +18,20 @@
 
 @media (max-width: 706px) {
   .profile__edit {
-    margin-left: 10px;
+    margin-top: 3px;
   }
 }
 
-@media (max-width: 475px) {
+@media (max-width: 554px) {
   .profile__edit {
     width: 18px;
     height: 18px;
+    background-image: url(../../../image/profile/icons/vect320.svg);
+  }
+}
+
+@media (max-width: 425px) {
+  .profile__edit {
+    margin-top: 10px;
   }
 }
