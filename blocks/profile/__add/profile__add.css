@@ -27,5 +27,6 @@
   .profile__add {
     margin: 31px auto 0;
     width: 100%;
+    background-image: url(../../../image/profile/icons/plus320.svg);
   }
 }
