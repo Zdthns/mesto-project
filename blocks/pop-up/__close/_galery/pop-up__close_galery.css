@@ -1,0 +1,9 @@
+.pop-up__close_galery {
+  align-self: end;
+}
+
+@media (max-width: 460px){
+  .pop-up__close_galery {
+    margin-right: 0;
+  }
+}

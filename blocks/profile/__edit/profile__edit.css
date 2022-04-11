@@ -4,6 +4,7 @@
   height: 24px;
   margin: 0;
   margin-bottom: 5px;
+  cursor: pointer;
   align-self: center;
   background-color: transparent;
   background-image: url(../../../image/profile/icons/vect.svg);

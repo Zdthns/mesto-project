@@ -4,8 +4,11 @@
   padding: 0;
   padding-bottom: 7px;
   max-width: 340px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 25px;
+  align-self: center;
 }
 
 @media (max-width: 545px) {

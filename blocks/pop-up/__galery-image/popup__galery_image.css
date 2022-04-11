@@ -1,0 +1,6 @@
+.popup__galery-image {
+  max-width: 75vh;
+  max-height: 75vh;
+  object-fit: cover;
+  object-position: center; 
+}
