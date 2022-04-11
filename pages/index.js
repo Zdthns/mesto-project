@@ -151,9 +151,11 @@ document.addEventListener('click', evt => {
   if (!bigCard) {
     return;
   }
+  let galeryImage = document.querySelector('.popup__galery-image');
+  galeryImage.src = bigCard.src;
+  galeryImage.alt = bigCard.alt;
+
   document.querySelector('#galery-image').classList.add('pop-up_opened');
-  document.querySelector('.popup__galery-image').src = bigCard.src;
-  document.querySelector('.popup__galery-image').alt = bigCard.alt;
   document.querySelector('.pop-up__form-title_galery-title').textContent = bigCard.alt;
   document.querySelector('.pop-up__close_galery').addEventListener('click', closeBigCard);
 })
@@ -164,13 +166,3 @@ function closeBigCard() {
 };
 
 addCard();
-
-function focus(element) {
-  block.style.opacity = '1';
-
-}
-function blur() {
-
-}
-
-function blur1() { block.style.opacity = '0'; }
