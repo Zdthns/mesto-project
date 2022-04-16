@@ -114,9 +114,8 @@ document.querySelector('.popup__close-mesto').addEventListener('click', closeFor
 document.querySelector('#galery-popup').addEventListener('submit', creatMesto);
 
 
-//форма добавления
+//открытие формы обавления карточки
 function openFormCard() {
-
   popapGalery.classList.add('pop-up_opened');
 };
 
