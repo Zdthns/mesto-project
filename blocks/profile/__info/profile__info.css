@@ -1,7 +1,6 @@
 .profile__info {
-  margin-left: 28px;
   margin-top: 25px;
-  padding: 0;
+  padding: 0 28px;
   padding-bottom: 7px;
   max-width: 340px;
   display: grid;
@@ -14,12 +13,13 @@
 @media (max-width: 545px) {
   .profile__info {
     justify-content: center;
-    margin-left: 0;
   }
 }
 
 @media (max-width: 425px) {
   .profile__info {
-    margin-left: 28px;
+    max-width: 288px;
+    column-gap: 10px;
+
   }
 }

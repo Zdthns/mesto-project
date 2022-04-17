@@ -11,11 +11,19 @@
   text-overflow: ellipsis;
 }
 
+@media (max-width: 950px) {
+  .profile__subtitle {
+    max-width: 250px;
+  }
+}
 @media (max-width: 425px) {
   .profile__subtitle {
-    margin-right: 25px;
+    margin-right: 0px;
+  }
+}
+@media (max-width: 325px) {
+  .profile__subtitle {
     font-size: 14px;
-    line-height: 17px;
-    margin-top: 10px;
+   text-align: center;
   }
 }

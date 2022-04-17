@@ -1,7 +1,11 @@
 .content {
   margin: 0 15.6%;
 }
-
+@media (max-width: 865px) {
+  .content {
+    margin: 0 10%;
+  }
+}
 @media (max-width: 425px) {
   .content {
     margin: 0 5.9%;

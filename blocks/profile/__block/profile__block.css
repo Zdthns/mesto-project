@@ -3,7 +3,7 @@
   justify-content: start;
 }
 
-@media (max-width: 495px) {
+@media (max-width: 595px) {
   .profile__block {
     flex-direction: column;
     align-items: center;

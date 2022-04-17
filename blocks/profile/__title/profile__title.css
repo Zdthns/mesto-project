@@ -28,4 +28,7 @@
 
 @media (max-width: 425px) {
   .profile__title {
-    margin-right: 10px;
+    margin-right: 0px;
+    margin-left: 20px;
+  }
+}

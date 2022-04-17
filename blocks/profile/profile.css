@@ -10,6 +10,7 @@
 @media (max-width: 875px) {
   .profile {
     flex-direction: column;
+    
   }
 }
 
