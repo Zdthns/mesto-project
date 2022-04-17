@@ -21,7 +21,7 @@ const inputLinkMesto = document.querySelector('#link-mesto');// инпут
 //node
 const profileTitle = document.querySelector('.profile__title');
 const profileAbout = document.querySelector('.profile__subtitle');
-const cardBig = document.querySelector('.popup__galery-image');
+const cardBig = document.querySelector('.popup__image');
 const cardBigTitle = document.querySelector('pop-up__form-title_galery-title');
 const closeBigCard = document.querySelector('.pop-up__close_galery');
 const card = document.querySelector('.card');
