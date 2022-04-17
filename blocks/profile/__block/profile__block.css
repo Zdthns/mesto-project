@@ -1,6 +1,7 @@
 .profile__block {
   display: flex;
   justify-content: start;
+
 }
 
 @media (max-width: 595px) {

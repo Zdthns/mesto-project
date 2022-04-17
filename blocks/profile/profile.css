@@ -7,10 +7,10 @@
   justify-content: space-between;
 }
 
-@media (max-width: 875px) {
+@media (max-width: 1024px) {
   .profile {
     flex-direction: column;
-    
+
   }
 }
 
