@@ -1,16 +1,14 @@
 //pop-up
 const profilePopup = document.querySelector('#profile-popup');
 const galeryPopup = document.querySelector('#galery-popup');
-const bigGaleryPopup = document.querySelector('#galery-image');
-//button-save
-const saveCardButton = document.querySelector('#mesto-save');// кнопка сохранения карточки
-const profileSave = document.querySelector('.form__save');// profile 
+const galeryBigPopup = document.querySelector('#galery-image');
+
 //button-open
 const profileEdit = document.querySelector('#edit');
 const cardAdd = document.querySelector('#add');
 //button-close
 const profileCloses = document.querySelector('.pop-up__close');
-const closesMesto = document.querySelector('.popup__close-mesto');
+const mestoClose = document.querySelector('.popup__close-mesto');
 
 //input
 const nameInput = document.querySelector('#name');
@@ -23,7 +21,7 @@ const profileTitle = document.querySelector('.profile__title');
 const profileAbout = document.querySelector('.profile__subtitle');
 const cardBig = document.querySelector('.popup__image');
 const cardBigTitle = document.querySelector('pop-up__form-title_galery-title');
-const closeBigCard = document.querySelector('.pop-up__close_galery');
+const cardBigClose = document.querySelector('.pop-up__close_galery');
 const card = document.querySelector('.card');
 const cardImage = document.querySelector('.card__image');
 const galery = document.querySelector('.galery');
@@ -77,7 +75,7 @@ profileEdit.addEventListener('click', evt => {
   copyText();
 });
 //closeForm
-closesMesto.addEventListener('click', clearInput);
+mestoClose.addEventListener('click', clearInput);
 
 function clearInput(evt) {
   galeryForm.reset();
@@ -86,8 +84,8 @@ function clearInput(evt) {
 profileCloses.addEventListener('click', evt => {
   closeForm(profilePopup);
 });
-closeBigCard.addEventListener('click', evt => {
-  closeForm(bigGaleryPopup);
+cardBigClose.addEventListener('click', evt => {
+  closeForm(galeryBigPopup);
 });
 //submit
 profileForm.addEventListener('submit', formSubmitHandler);
@@ -132,8 +130,8 @@ function addCard(inputLink, inputName) {
 
 function creatMesto(items) {
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-  const likeCard = cardElement.querySelector('.card__like');
-  const deletCard = cardElement.querySelector('.card__delete');
+  const cardLike = cardElement.querySelector('.card__like');
+  const cardDelete = cardElement.querySelector('.card__delete');
   const imgCard = cardElement.querySelector('.card__image');
   const imgName = cardElement.querySelector('.card__name');
 
@@ -142,30 +140,21 @@ function creatMesto(items) {
   imgName.textContent = items['name'];
 
   // like
-  likeCard.addEventListener('click', evt => {
+  cardLike.addEventListener('click', evt => {
     const cardLike = evt.target;
-    if (!cardLike) {
-      return;
-    };
     cardLike.classList.toggle('card__like_activ');
   });
   // удалениe карточки
-  deletCard.addEventListener('click', evt => {
+  cardDelete.addEventListener('click', evt => {
     const cardDelete = evt.target;
-    if (!cardDelete) {
-      return;
-    }
     cardDelete.closest('.card').remove();
   });
   imgCard.addEventListener('click', evt => {
     const card = evt.target;
-    if (!card) {
-      return;
-    }
     cardBig.src = card.src;
     cardBig.alt = card.alt;
-    bigGaleryPopup.querySelector('.pop-up__form-title').textContent = card.alt;
-    openForm(bigGaleryPopup);
+    galeryBigPopup.querySelector('.pop-up__form-title').textContent = card.alt;
+    openForm(galeryBigPopup);
   });
   return cardElement;
 };
