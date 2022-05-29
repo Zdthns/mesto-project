@@ -71,28 +71,23 @@ cardAdd.addEventListener('click', evt => {
   openForm(galeryPopup);
 });
 
-profileEdit.addEventListener('click', evt => {
-  copyText();
-});
+profileEdit.addEventListener('click', copyText);
 //closeForm
 mestoClose.addEventListener('click', clearInput);
 
-function clearInput(evt) {
-  galeryForm.reset();
-  closeForm(galeryPopup);
-}
 profileCloses.addEventListener('click', evt => {
   closeForm(profilePopup);
 });
 cardBigClose.addEventListener('click', evt => {
   closeForm(galeryBigPopup);
 });
+
 //submit
 profileForm.addEventListener('submit', formSubmitHandler);
 galeryForm.addEventListener('submit', saveCard);
 
-
 //function
+
 function formSubmitHandler(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
@@ -106,12 +101,10 @@ function openForm(popup) {
 };
 
 function copyText() {
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileAbout.textContent;
+  nameInput.placeholder = profileTitle.textContent;
+  jobInput.placeholder = profileAbout.textContent;
   openForm(profilePopup);
-
 }
-
 
 //closes
 function closeForm(popup) {
@@ -164,5 +157,102 @@ function saveCard(evt) {
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
   addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
+  galeryForm.reset();
   clearInput();
 };
+
+function clearInput(evt) {
+  galeryForm.reset();
+  closeForm(galeryPopup);
+}
+
+//слушатели
+
+document.addEventListener('click', clickHandler);
+document.addEventListener('keydown', keyHandler);
+
+// маршрутизатор для всех клавиш
+function keyHandler(evt) {
+  switch (evt.key) {
+    case 'Escape': {
+      keyEsc();
+      break;
+    }
+    case 'Enter': {
+      console.log(evt.key);
+      break;
+    }
+  }
+};
+
+//обработчик для каждой клавиши
+function keyEsc() {
+  const popups = document.querySelectorAll('.pop-up')
+  popups.forEach(elem => {
+    if (elem.classList.contains('pop-up_opened')) {
+      elem.classList.remove('pop-up_opened');
+    }
+  })
+}
+
+function clickHandler(evt) {
+  if (evt.target.classList.contains('pop-up')) {
+    closeForm(evt.target);
+  }
+};
+/*Формы */
+
+const formAutor = document.forms.autor;
+const nameAutor = formAutor.elements.nameAutor;
+const aboutAutor = formAutor.elements.aboutAutor;
+const btnAutor = document.querySelector('.btn-autor');
+
+const formMesto = document.forms.mesto;
+const nameMesto = formMesto.elements.nameMesto;
+const linkMesto = formMesto.elements.linkMesto;
+const btnMesto = document.querySelectorAll('.btn-mesto');
+
+
+
+// рабочий код:
+/*
+formAutor.addEventListener('input', function (evt) {
+  const isFormValid = nameAutor.value.length > 2 && aboutAutor.value.length > 2
+  setSubmitButtonState(isFormValid);
+}
+);
+
+function setSubmitButtonState(isFormValid) {
+  if (isFormValid) {
+    btnAutor.removeAttribute('disabled');
+    btnAutor.classList.remove('form__save_disabled');
+  } else {
+    btnAutor.setAttribute('disabled', true);
+    btnAutor.classList.add('form__save_disabled');
+  }
+}
+*/
+// рабочий код:
+
+/**document.addEventListener('click', closeOverlay);
+document.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Escape') {
+    keyHandler();
+  }
+});
+
+function keyHandler() {
+  const popups = document.querySelectorAll('.pop-up')
+  popups.forEach(elem => {
+    if (elem.classList.contains('pop-up_opened')) {
+      elem.classList.remove('pop-up_opened');
+    }
+  })
+}
+
+function closeOverlay(evt) {
+  if (evt.target.classList.contains('pop-up')) {
+    closeForm(evt.target);
+  }
+};
+ */
