@@ -12,10 +12,6 @@
   font-family: 'Inter', 'Arial', sans-serif;
 }
 
-.form__item:invalid {
-  border-bottom: 1px solid red;
-}
-
 
 @media (max-width: 425px) {
   .form__item {

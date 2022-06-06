@@ -38,10 +38,14 @@
 
 /*form*/
 @import url(../blocks/form/form.css);
-@import url(../blocks/form/__autor-info/form__autor-info.css);
+@import url(../blocks/form/__fildset/form__fildset.css);
 @import url(../blocks/form/__item/form__item.css);
 @import url(../blocks/form/__save/form__save.css);
 @import url(../blocks/form/__save/_disabled/form__save_disabled.css);
+@import url(../blocks/form/__item-error/form__item-error.css);
+@import url(../blocks/form/__item-error/form__item-error_active.css);
+@import url(../blocks/form/__input-error/form__input-error.css);
+
 
 /*pop-up*/
 @import url(../blocks/pop-up/__form-container/pop-up__form-container.css);

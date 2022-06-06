@@ -36,14 +36,15 @@
       <button aria-label="close" type="button" class="pop-up__close"></button>
       <div class="pop-up__form-container">
         <h2 class="pop-up__form-title">Редактировать профиль</h2>
-        <form name='autor' action="#" id="form__autor-info" class="form">
-          <fieldset class="form__autor-info">
-            <input class="form__item" name="nameAutor" id="name" type="text" value="" minlength="2" maxlength="20"
-              placeholder="Введите свое имя" autofocus required>
-            <input class="form__item" name="aboutAutor" id="about" type="text" value=""
-              placeholder="Дополнительная информация" autofocus required>
-            <button name='btnAutor' type="submit" form="form__autor-info" class="form__save  form__save_disabled"
-              disabled>Сохранить</button>
+        <form name='autor' action="#" id="form__autor-info" class="form" novalidate>
+          <fieldset class="form__fildset">
+            <input class="form__item" name="nameAutor" id="name" type="text" required value="" minlength="2"
+              maxlength="40" placeholder="Введите свое имя" autofocus>
+            <span class="form__item-error name-error"></span>
+            <input class="form__item" name="aboutAutor" id="about" type="text" required value="" minlength="2"
+              maxlength="200" placeholder="Дополнительная информация" autofocus>
+            <span class="form__item-error about-error"></span>
+            <button name='btnAutor' type="submit" form="form__autor-info" class="form__save" disabled>Сохранить</button>
           </fieldset>
         </form>
 
@@ -55,14 +56,16 @@
       <button aria-label="close" type="button" class="pop-up__close  popup__close-mesto"></button>
       <div class="pop-up__form-container">
         <h2 class="pop-up__form-title">Hoвое место</h2>
-        <form name='mesto' action="#" id="form__mesto" class="form">
-          <fieldset class="form__autor-info">
-            <input class="form__item" name="nameMesto" id="name-mesto" type="text" value="" placeholder="Название"
-              required>
-            <input class="form__item" name="linkMesto" id="link-mesto" type="url" value=""
-              placeholder="Ссылка на картинку" required>
-            <button name='btnMesto' id="mesto-save" type="submit" form="form__mesto"
-              class="form__save form__save_disabled" disabled>Сохранить</button>
+        <form name='mesto' action="#" id="form__mesto" class="form" novalidate>
+          <fieldset class="form__fildset">
+            <input class="form__item" name="nameMesto" id="name-mesto" type="text" required value="" minlength="2"
+              maxlength="30" placeholder="Название">
+            <span class="form__item-error name-mesto-error"></span>
+            <input class="form__item" name="linkMesto" id="link-mesto" required type="url" value=""
+              placeholder="Ссылка на картинку">
+            <span class="form__item-error link-mesto-error"></span>
+            <button name='btnMesto' id="mesto-save" type="submit" form="form__mesto" class="form__save"
+              disabled>Сохранить</button>
           </fieldset>
         </form>
 
