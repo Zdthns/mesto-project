@@ -198,46 +198,45 @@ function clickHandler(evt) {
 /*Формы */
 
 
-const enableValidation = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
+const classList = {
+  formSelector: '.form',
+  inputSelector: '.form__item',
+  submitButtonSelector: '.form__save',
+  inactiveButtonClass: 'form__save_disabled',
+  inputErrorClass: 'form__input-error',
+  errorClass: 'form__item-error'
 };
 
 // находим все формы и отменяем действие по кнопке
-function enumerationForm() {
-  const formList = Array.from(document.querySelectorAll('.form'));
+function enableValidation(classList) {
+  const formList = Array.from(document.querySelectorAll(classList.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-
-    setEventListeners(formElement);
+    setEventListeners(classList, formElement);
   });
-
 }
-enumerationForm()
+
+enableValidation(classList)
 //функция навешивающая слушатели на все инпуты
-function setEventListeners(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll('.form__item'));
+function setEventListeners(classList, formElement) {
+  const inputList = Array.from(formElement.querySelectorAll(classList.inputSelector));
   inputList.forEach((inputElement) => {
-    const buttonElement = formElement.querySelector('.form__save');
-    toggleButtonState(inputList, buttonElement);
+    const buttonElement = formElement.querySelector(classList.submitButtonSelector);
+    toggleButtonState(classList, inputList, buttonElement);
     inputElement.addEventListener('input', function () {
-      isValid(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      isValid(classList, formElement, inputElement);
+      toggleButtonState(classList, inputList, buttonElement);
     });
   });
 };
 // функция, проверяющая на валидность
-function isValid(formElement, inputElement) {
+function isValid(classList, formElement, inputElement) {
   if (!inputElement.validity.valid) {
     // showInputError теперь получает параметром форму, в которой
     // находится проверяемое поле, и само это поле
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(classList, formElement, inputElement, inputElement.validationMessage);
   } else {
     // hideInputError теперь получает параметром форму, в которой
     // находится проверяемое поле, и само это поле
@@ -246,22 +245,20 @@ function isValid(formElement, inputElement) {
 };
 
 // функция добавляющая класс с ошибкой
-function showInputError(formElement, inputElement, errorMessage) {
+function showInputError(classList, formElement, inputElement, errorMessage) {
 
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-  errorElement.classList.add('form__item-error');
-  inputElement.classList.add('form__input-error');
+  errorElement.classList.add(classList.errorClass);
+  inputElement.classList.add(classList.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__item-error_active');
 };
 // функция удаляющая класс с ошибкой
 function hideInputError(formElement, inputElement) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-  inputElement.classList.remove('form__input-error');
-  errorElement.classList.remove('form__item-error');
-  errorElement.classList.remove('form__item-error_active');
+  inputElement.classList.remove(classList.inputErrorClass);
+  errorElement.classList.remove(classList.errorClass);
   errorElement.textContent = '';
 };
 
@@ -278,13 +275,13 @@ function hasInvalidInput(inputList) {
 };
 
 //переключение кнопки
-function toggleButtonState(inputList, buttonElement) {
+function toggleButtonState(classList, inputList, buttonElement) {
   // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputList)) {
     // сделай кнопку неактивной
-    buttonElement.classList.add('form__save_disabled');
+    buttonElement.classList.add(classList.inactiveButtonClass);
   } else {
     // иначе сделай кнопку активной
-    buttonElement.classList.remove('form__save_disabled');
+    buttonElement.classList.remove(classList.inactiveButtonClass);
   }
-}; 
+};
