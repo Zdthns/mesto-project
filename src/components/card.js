@@ -1,5 +1,5 @@
 import { openForm } from './modal.js';
-import { inputNameMesto, inputLinkMesto, galery, galeryForm, galeryPopup } from './const.js';
+import { inputNameMesto, inputLinkMesto, galery, galeryForm, cardBig, galeryBigPopup } from './const.js';
 export { saveCard, addCard };
 
 const initialCards = [
