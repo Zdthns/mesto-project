@@ -1,9 +1,7 @@
-import { openForm } from './modal.js'
-import { inputNameMesto, inputLinkMesto, galery, galeryForm, galeryPopup } from './index.js';
-export { saveCard }
+import { openForm } from './modal.js';
+import { inputNameMesto, inputLinkMesto, galery, galeryForm, galeryPopup } from './const.js';
+export { saveCard, addCard };
 
-/*
-// массив
 const initialCards = [
   {
     name: 'Архыз',
@@ -34,14 +32,14 @@ initialCards.forEach(items => {
   const elem = creatMesto(items);
   galery.prepend(elem);
 });
-*/
+
 function saveCard(evt) {
   evt.preventDefault();
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
   addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
-  //galeryForm.reset();
-  //clearInput(galeryForm);
+  galeryForm.reset();
+
 };
 
 function addCard(inputLink, inputName) {

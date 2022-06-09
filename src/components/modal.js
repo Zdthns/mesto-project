@@ -1,4 +1,4 @@
-import { profilePopup, profileTitle, profileAbout, nameInput, jobInput } from './index.js';
+import { profilePopup, profileTitle, profileAbout, nameInput, jobInput } from './const.js';
 export { formSubmitHandler, copyText, clickHandler, closeForm, openForm };
 
 // profile-popup
