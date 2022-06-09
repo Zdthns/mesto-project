@@ -20,6 +20,7 @@ function openForm(popup) {
   popup.classList.add('pop-up_opened');
   if (popup.classList.contains('pop-up_opened')) {
     document.addEventListener('keydown', clickEsc)
+    document.addEventListener('click', clickHandler);
   }
 };
 
@@ -41,5 +42,6 @@ function clickEsc(evt) {
 function clickHandler(evt) {
   if (evt.target.classList.contains('pop-up')) {
     closeForm(evt.target);
+    document.removeEventListener('click', clickHandler);
   }
 };

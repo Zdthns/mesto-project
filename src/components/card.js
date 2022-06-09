@@ -1,4 +1,4 @@
-import { closeForm, openForm } from './modal.js'
+import { openForm } from './modal.js'
 import { inputNameMesto, inputLinkMesto, galery, galeryForm, galeryPopup } from './index.js';
 export { saveCard }
 
@@ -85,9 +85,3 @@ function creatMesto(items) {
   return cardElement;
 };
 
-/*
-function clearInput(elem) {
-  elem.reset();
-  closeForm();
-}
-*/

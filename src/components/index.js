@@ -61,7 +61,7 @@ cardBigClose.addEventListener('click', evt => {
 profileForm.addEventListener('submit', formSubmitHandler);
 galeryForm.addEventListener('submit', saveCard);
 
-document.addEventListener('click', clickHandler);
+
 
 
 
