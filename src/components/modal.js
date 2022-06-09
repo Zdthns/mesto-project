@@ -1,4 +1,6 @@
-import { profilePopup, profileTitle, profileAbout, nameInput, jobInput, galeryBigPopup } from './const.js';
+import { profilePopup, profileTitle, profileAbout, nameInput, jobInput } from './const.js';
+import { classList } from './index.js'
+import { enableValidation } from './validate.js';
 export { formSubmitHandler, copyText, clickHandler, closeForm, openForm };
 
 // profile-popup
@@ -13,6 +15,7 @@ function copyText() {
   nameInput.placeholder = profileTitle.textContent;
   jobInput.placeholder = profileAbout.textContent;
   openForm(profilePopup);
+  enableValidation(classList)
 }
 
 //  open popup
@@ -29,8 +32,7 @@ function closeForm(popup) {
   if (popup.classList.contains('popup__galery-image')) {
     popup.classList.remove('pop-up_opened');
   } else {
-    const form = popup.querySelector('.form');
-    form.reset()
+    popup.querySelector('.form').reset();
     popup.classList.remove('pop-up_opened');
   }
 };

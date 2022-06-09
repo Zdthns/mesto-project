@@ -8,9 +8,11 @@ import { galeryPopup, profilePopup, galeryBigPopup, cardAdd, profileEdit, mestoC
 // openForm
 cardAdd.addEventListener('click', evt => {
   openForm(galeryPopup);
+  enableValidation(classList)
 });
 
 profileEdit.addEventListener('click', copyText);
+
 //closeForm
 mestoClose.addEventListener('click', evt => {
   closeForm(galeryPopup);
@@ -36,5 +38,5 @@ export const classList = {
   errorClass: 'form__item-error'
 };
 
-enableValidation(classList)
+//enableValidation(classList)
 
