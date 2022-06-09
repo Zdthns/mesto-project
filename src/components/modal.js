@@ -32,6 +32,14 @@ function closeForm(popup) {
   if (popup.classList.contains('popup__galery-image')) {
     popup.classList.remove('pop-up_opened');
   } else {
+    const input = popup.querySelectorAll('.form__item')
+    input.forEach(elem => {
+      elem.classList.remove('form__input-error')
+    })
+    const spans = document.querySelectorAll('.form__item-error');
+    for (const span of spans) {
+      span.textContent = '';
+    }
     popup.querySelector('.form').reset();
     popup.classList.remove('pop-up_opened');
   }
