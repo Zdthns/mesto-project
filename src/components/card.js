@@ -2,6 +2,8 @@ import { openForm } from './modal.js';
 import { inputNameMesto, inputLinkMesto, galery, galeryForm, cardBig, galeryBigPopup } from './const.js';
 export { saveCard, addCard };
 
+
+
 const initialCards = [
   {
     name: 'Архыз',

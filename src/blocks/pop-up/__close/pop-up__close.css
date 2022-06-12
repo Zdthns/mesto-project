@@ -4,7 +4,7 @@
   margin-bottom: 8px;
   width: 32px;
   height: 32px;
-  background-image: url(../../../image/form/Close.svg);
+  background-image: url('../../../image/form/Close.svg');
   background-color: transparent;
   border: 0;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
   .pop-up__close {
     margin-right: 0;
     margin-bottom: 16px;
-    background-image: url(../../../image/profile/icons/Close\ Icon320.svg);
+    background-image: url('./../../../image/profile/icons/Close320.svg');
     width: 20px;
     height: 20px;
   }

@@ -1,3 +1,4 @@
+import '../pages/index.css';
 import { enableValidation } from './validate.js';
 import { formSubmitHandler, copyText, openForm, closeForm } from './modal.js';
 import { saveCard } from './card.js';
@@ -38,5 +39,5 @@ export const classList = {
   errorClass: 'form__item-error'
 };
 
-//enableValidation(classList)
+
 
