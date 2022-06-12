@@ -1,14 +1,22 @@
 {
-  "name": "yandex.prakticum",
+  "name": "yandex.praktikum",
   "version": "0.0.1",
-  "description": "learning platform",
+  "description": "Learning platform",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zdthns/mesto-project.git"
+  },
   "author": "Anna Kruchkova",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zdthns/mesto-project/issues"
+  },
+  "homepage": "https://github.com/Zdthns/mesto-project#readme",
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
