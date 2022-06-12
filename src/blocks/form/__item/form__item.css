@@ -12,6 +12,7 @@
   font-family: 'Inter', 'Arial', sans-serif;
 }
 
+
 @media (max-width: 425px) {
   .form__item {
     margin-bottom: 28px;

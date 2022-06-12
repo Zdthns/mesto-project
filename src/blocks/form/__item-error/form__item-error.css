@@ -1,0 +1,7 @@
+.form__item-error {
+  margin-bottom: 25px;
+  color: red;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}

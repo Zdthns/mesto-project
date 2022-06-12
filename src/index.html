@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
+
+<body class="page">
+  <header class="header">
+    <img src="./image/logo/Vector.svg" alt="Meсто" class="header__logo">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__block">
+        <img src="./image/profile/kusto.jpg" alt="Фото профиля" class="profile__img">
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто </h1>
+          <button aria-label="edit" type="button" id="edit" class="profile__edit"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+      </div>
+      <button aria-label="add" id="add" type="button" class="profile__add"></button>
+    </section>
+    <section aria-label="Фотографии" class="galery">
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
+  </footer>
+  <div id="profile-popup" class="pop-up">
+    <div class="pop-up__container">
+      <button aria-label="close" type="button" class="pop-up__close"></button>
+      <div class="pop-up__form-container">
+        <h2 class="pop-up__form-title">Редактировать профиль</h2>
+        <form name='autor' action="#" id="form__autor-info" class="form" novalidate>
+          <fieldset class="form__fildset">
+            <input class="form__item" name="nameAutor" id="name" type="text" required value="" minlength="2"
+              maxlength="40" placeholder="Введите свое имя" autofocus>
+            <span class="form__item-error name-error"></span>
+            <input class="form__item" name="aboutAutor" id="about" type="text" required value="" minlength="2"
+              maxlength="200" placeholder="Дополнительная информация" autofocus>
+            <span class="form__item-error about-error"></span>
+            <button name='btnAutor' type="submit" form="form__autor-info" class="form__save" disabled>Сохранить</button>
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div id='galery-popup' class="pop-up">
+    <div class="pop-up__container">
+      <button aria-label="close" type="button" class="pop-up__close  popup__close-mesto"></button>
+      <div class="pop-up__form-container">
+        <h2 class="pop-up__form-title">Hoвое место</h2>
+        <form name='mesto' action="#" id="form__mesto" class="form" novalidate>
+          <fieldset class="form__fildset">
+            <input class="form__item" name="nameMesto" id="name-mesto" type="text" required value="" minlength="2"
+              maxlength="30" placeholder="Название">
+            <span class="form__item-error name-mesto-error"></span>
+            <input class="form__item" name="linkMesto" id="link-mesto" required type="url" value=""
+              placeholder="Ссылка на картинку">
+            <span class="form__item-error link-mesto-error"></span>
+            <button name='btnMesto' id="mesto-save" type="submit" form="form__mesto" class="form__save"
+              disabled>Сохранить</button>
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div id='galery-image' class="pop-up popup__galery-image">
+    <div class="pop-up__container pop-up__container_galery">
+      <button aria-label="close" type="button" class="pop-up__close pop-up__close_galery"></button>
+      <img class="popup__image" src="" alt="">
+      <h2 class="pop-up__form-title pop-up__form-title_galery-title"></h2>
+    </div>
+  </div>
+  <template class="template-card">
+    <article class="card">
+      <img class='card__delete' src="./image/galery/delete.svg" alt="удалить">
+      <img src="" alt="" class="card__image">
+      <div class="card__title">
+        <h2 class="card__name"></h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </article>
+  </template>
+  <script type="module" src="./components/index.js"></script>
+  <script type="module" src="./components/validate.js"></script>
+  <script type="module" src="./components/modal.js"></script>
+  <script type="module" src="./components/card.js"></script>
+  <script type="module" src="./components/utils.js"></script>
+  <script type="module" src="./components/const.js"></script>
+</body>
+
+</html>
