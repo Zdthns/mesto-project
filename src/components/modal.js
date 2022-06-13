@@ -1,10 +1,8 @@
-import { profilePopup, profileTitle, profileAbout, nameInput, jobInput } from './const.js';
-import { classList } from './index.js'
-import { enableValidation } from './validate.js';
-export { formSubmitHandler, copyText, clickHandler, closeForm, openForm };
+import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput } from './const.js';
+export { handlerFormSubmit, copyText, clickHandler, closeForm, openForm };
 
 // profile-popup
-function formSubmitHandler(evt) {
+function handlerFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileAbout.textContent = jobInput.value;
@@ -12,10 +10,9 @@ function formSubmitHandler(evt) {
 };
 
 function copyText() {
-  nameInput.placeholder = profileTitle.textContent;
-  jobInput.placeholder = profileAbout.textContent;
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileAbout.textContent;
   openForm(profilePopup);
-  enableValidation(classList)
 }
 
 //  open popup
@@ -29,21 +26,27 @@ function openForm(popup) {
 
 //closes
 function closeForm(popup) {
-  if (popup.classList.contains('popup__galery-image')) {
-    popup.classList.remove('pop-up_opened');
-  } else {
-    const input = popup.querySelectorAll('.form__item')
-    input.forEach(elem => {
-      elem.classList.remove('form__input-error')
-    })
-    const spans = document.querySelectorAll('.form__item-error');
-    for (const span of spans) {
-      span.textContent = '';
-    }
-    popup.querySelector('.form').reset();
-    popup.classList.remove('pop-up_opened');
-  }
+  clearInput(popup)
+  clearSpanError(popup)
+
+  popup.classList.remove('pop-up_opened');
+  //}
 };
+function clearInput(popup) {
+  popup.querySelector('.form').reset();
+  const input = popup.querySelectorAll('.form__item')
+  input.forEach(elem => {
+    elem.classList.remove('form__input-error')// удаляем красную черту
+  })
+}
+
+// функция очищает span, после закрытия формы( без нее при повторном открытии, надпись с ошибкой остается)
+function clearSpanError(popup) {
+  const spans = popup.querySelectorAll('.form__item-error');
+  for (const span of spans) {
+    span.textContent = '';
+  }
+}
 
 function clickEsc(evt) {
   if (evt.key === 'Escape') {
