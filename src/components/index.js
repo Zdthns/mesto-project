@@ -1,33 +1,33 @@
 import '../pages/index.css';
 import { enableValidation } from './validate.js';
-import { formSubmitHandler, copyText, openForm, closeForm } from './modal.js';
+import { handlerFormSubmit, copyText, openForm, closeForm, popupElem } from './modal.js';
 import { saveCard } from './card.js';
-import { galeryPopup, profilePopup, galeryBigPopup, cardAdd, profileEdit, mestoClose, galeryForm, profileForm, cardBigClose, profileCloses } from './const.js';
+import { galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, popups } from './const.js';
 
 // слушатели:
 
 // openForm
 cardAdd.addEventListener('click', evt => {
   openForm(galeryPopup);
-  enableValidation(classList)
 });
 
 profileEdit.addEventListener('click', copyText);
 
 //closeForm
-mestoClose.addEventListener('click', evt => {
-  closeForm(galeryPopup);
-});
-profileCloses.addEventListener('click', evt => {
-  closeForm(profilePopup);
-});
-cardBigClose.addEventListener('click', evt => {
-  closeForm(galeryBigPopup);
-});
+
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    const popupElem = evt.target.parentNode.parentNode;
+    if (popupElem.classList.contains('pop-up_opened')) {
+      closeForm(popupElem);
+    }
+  })
+})
 
 //submit
-profileForm.addEventListener('submit', formSubmitHandler);
+profileForm.addEventListener('submit', handlerFormSubmit);
 galeryForm.addEventListener('submit', saveCard);
+
 
 /*Формы */
 export const classList = {
@@ -39,5 +39,5 @@ export const classList = {
   errorClass: 'form__item-error'
 };
 
-
+enableValidation(classList)
 
