@@ -14,13 +14,10 @@ cardAdd.addEventListener('click', evt => {
 profileEdit.addEventListener('click', copyText);
 
 //closeForm
-
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
-    const popupElem = evt.target.parentNode.parentNode;
-    if (popupElem.classList.contains('pop-up_opened')) {
-      closeForm(popupElem);
-    }
+    const popupElem = evt.target.closest('.pop-up_opened');
+    closeForm(popupElem);
   })
 })
 
