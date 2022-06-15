@@ -32,7 +32,7 @@ function isValid(classList, formElement, inputElement) {
   } else {
     // hideInputError теперь получает параметром форму, в которой
     // находится проверяемое поле, и само это поле
-    hideInputError(formElement, inputElement);
+    hideInputError(classList, formElement, inputElement);
   }
 };
 
@@ -46,7 +46,7 @@ function showInputError(classList, formElement, inputElement, errorMessage) {
   errorElement.textContent = errorMessage;
 };
 // функция удаляющая класс с ошибкой
-function hideInputError(formElement, inputElement) {
+function hideInputError(classList, formElement, inputElement) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
   inputElement.classList.remove(classList.inputErrorClass);

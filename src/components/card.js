@@ -2,8 +2,6 @@ import { openForm, closeForm } from './modal.js';
 import { inputNameMesto, inputLinkMesto, galery, galeryForm, cardBig, galeryBigPopup, cardTemplate, galeryPopup } from './const.js';
 export { saveCard, addCard };
 
-
-
 const initialCards = [
   {
     name: 'Архыз',
@@ -37,11 +35,12 @@ initialCards.forEach(items => {
 
 function saveCard(evt) {
   evt.preventDefault();
+  const popup = evt.target.closest('.pop-up_opened');
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
   addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
   galeryForm.reset();
-  closeForm(galeryPopup);
+  closeForm(popup);
 };
 
 function addCard(inputLink, inputName) {

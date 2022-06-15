@@ -1,6 +1,6 @@
 import '../pages/index.css';
 import { enableValidation } from './validate.js';
-import { handlerFormSubmit, copyText, openForm, closeForm, popupElem } from './modal.js';
+import { handlerFormSubmit, copyText, openForm, closeForm } from './modal.js';
 import { saveCard } from './card.js';
 import { galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, btmClosed } from './const.js';
 

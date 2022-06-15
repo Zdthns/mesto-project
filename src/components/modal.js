@@ -1,5 +1,5 @@
 import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput } from './const.js';
-export { handlerFormSubmit, copyText, clickHandler, closeForm, openForm };
+export { handlerFormSubmit, copyText, clickHandler, closeForm, openForm, clearInput, clearSpanError };
 
 // profile-popup
 function handlerFormSubmit(evt) {
@@ -19,19 +19,23 @@ function copyText() {
 function openForm(popup) {
   popup.classList.add('pop-up_opened');
   if (popup.classList.contains('pop-up_opened')) {
+    disabledBtm(popup);
     document.addEventListener('keydown', clickEsc)
     document.addEventListener('click', clickHandler);
   }
 };
 
+function disabledBtm(popup) {
+  const buttonElem = popup.querySelector('.form__save')
+  buttonElem.classList.add('form__save_disabled');
+  buttonElem.setAttribute('disabled', '');
+}
+
 //closes
 function closeForm(popup) {
-  clearInput(popup)
-  clearSpanError(popup)
-
   popup.classList.remove('pop-up_opened');
-  //}
 };
+
 function clearInput(popup) {
   popup.querySelector('.form').reset();
   const input = popup.querySelectorAll('.form__item')
