@@ -13,6 +13,7 @@ cardAdd.addEventListener('click', evt => {
 profileEdit.addEventListener('click', copyText);
 
 //closeForm
+
 btmClosed.forEach((btm) => {
   btm.addEventListener('click', (evt) => {
     const popupElem = evt.target.closest('.pop-up_opened');
@@ -21,9 +22,12 @@ btmClosed.forEach((btm) => {
 })
 
 //submit
-profileForm.addEventListener('submit', handlerFormSubmit);
-galeryForm.addEventListener('submit', saveCard);
+profileForm.addEventListener('submit', handlerFormSubmit)
 
+
+galeryForm.addEventListener('submit', evt => {
+  saveCard(evt);
+})
 
 /*Формы */
 export const classList = {

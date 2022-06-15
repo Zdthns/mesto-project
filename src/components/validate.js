@@ -14,8 +14,9 @@ export function enableValidation(classList) {
 function setEventListeners(classList, formElement) {
 
   const inputList = Array.from(formElement.querySelectorAll(classList.inputSelector));
+  const buttonElement = formElement.querySelector(classList.submitButtonSelector);
+
   inputList.forEach((inputElement) => {
-    const buttonElement = formElement.querySelector(classList.submitButtonSelector);
     toggleButtonState(classList, inputList, buttonElement);
     inputElement.addEventListener('input', function () {
       isValid(classList, formElement, inputElement);
@@ -75,7 +76,7 @@ function toggleButtonState(classList, inputList, buttonElement) {
   } else {
     // иначе сделай кнопку активной
     buttonElement.classList.remove(classList.inactiveButtonClass);
-    buttonElement.removeAttribute('disabled', '');
+    buttonElement.removeAttribute('disabled', ' ');
   }
 };
 
