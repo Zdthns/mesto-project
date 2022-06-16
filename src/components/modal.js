@@ -1,12 +1,12 @@
-import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput } from './const.js';
-export { handlerFormSubmit, copyText, clickHandler, closeForm, openForm, clearForm };
+import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput, galeryBigPopup } from './const.js';
+import { openForm, closeForm } from './utils.js'
+export { handlerFormSubmit, copyText, closeForm, openForm, sortPopup, clearForm };
 
 // profile-popup
 function handlerFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileAbout.textContent = jobInput.value;
-  closeForm(profilePopup);
   clearForm(profilePopup);
 };
 
@@ -16,30 +16,22 @@ function copyText() {
   openForm(profilePopup);
 }
 
-//  open popup
-function openForm(popup) {
-  popup.classList.add('pop-up_opened');
-  if (popup.classList.contains('pop-up_opened')) {
-    document.addEventListener('keydown', clickEsc)
-    document.addEventListener('click', clickHandler);
-  }
-};
-
-
-//closes
-function closeForm(popup) {
-  popup.classList.remove('pop-up_opened');
-  clearForm(popup);
-
+function sortPopup(popupElem) {
+  if (popupElem.querySelector('.form')) {
+    clearForm(popupElem);
+  } else {
+    closeForm(popupElem);
+  };
 };
 
 function clearForm(popup) {
-  popup.querySelector('.form').reset();
+  const form = popup.querySelector('.form');
+  form.reset(); // сброс формы
   const btn = popup.querySelector('.form__save');
   btn.setAttribute('disabled', '')
-  btn.classList.add('form__save_disabled');
+  btn.classList.add('form__save_disabled');// блок кнопки
 
-  const spans = popup.querySelectorAll('.form__item-error');
+  const spans = popup.querySelectorAll('.form__item-error');// спрятать спан с ошибкой
   for (const span of spans) {
     span.textContent = '';
   };
@@ -48,19 +40,6 @@ function clearForm(popup) {
   input.forEach(elem => {
     elem.classList.remove('form__input-error')// удаляем красную черту
   })
+  closeForm(popup);
 }
 
-
-function clickEsc(evt) {
-  if (evt.key === 'Escape') {
-    const elem = document.querySelector('.pop-up_opened');
-    closeForm(elem);
-    document.removeEventListener('keydown', clickEsc);
-  }
-}
-function clickHandler(evt) {
-  if (evt.target.classList.contains('pop-up')) {
-    closeForm(evt.target);
-    document.removeEventListener('click', clickHandler);
-  }
-};

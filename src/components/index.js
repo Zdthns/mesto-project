@@ -1,6 +1,8 @@
 import '../pages/index.css';
+
 import { enableValidation } from './validate.js';
-import { handlerFormSubmit, copyText, openForm, closeForm } from './modal.js';
+import { handlerFormSubmit, copyText, sortPopup } from './modal.js';
+import { openForm } from './utils.js';
 import { saveCard } from './card.js';
 import { galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, btmClosed } from './const.js';
 
@@ -17,9 +19,12 @@ profileEdit.addEventListener('click', copyText);
 btmClosed.forEach((btm) => {
   btm.addEventListener('click', (evt) => {
     const popupElem = evt.target.closest('.pop-up_opened');
-    closeForm(popupElem);
-  })
+    sortPopup(popupElem);
+  }
+  );
 })
+
+
 
 //submit
 profileForm.addEventListener('submit', handlerFormSubmit)

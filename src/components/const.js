@@ -2,7 +2,7 @@
 //pop-up
 export const profilePopup = document.querySelector('#profile-popup');
 export const galeryPopup = document.querySelector('#galery-popup');
-export const galeryBigPopup = document.querySelector('#galery-image');
+export const galeryBigPopup = document.querySelector('.popup__galery-image');
 export const btmClosed = document.querySelectorAll('.pop-up__close');
 //button-open
 export const profileEdit = document.querySelector('#edit');
