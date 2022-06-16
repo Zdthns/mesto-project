@@ -1,7 +1,7 @@
-import { openForm, closeForm } from './modal.js';
-import { inputNameMesto, inputLinkMesto, galery, galeryForm, cardBig, galeryBigPopup, cardTemplate, galeryPopup } from './const.js';
+import { clearForm } from './modal.js';
+import { openForm } from './utils.js';
+import { inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle } from './const.js';
 export { saveCard, addCard };
-
 
 
 const initialCards = [
@@ -37,11 +37,11 @@ initialCards.forEach(items => {
 
 function saveCard(evt) {
   evt.preventDefault();
+  const popup = evt.target.closest('.pop-up_opened');
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
   addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
-  galeryForm.reset();
-  closeForm(galeryPopup);
+  clearForm(popup);
 };
 
 function addCard(inputLink, inputName) {
@@ -79,7 +79,7 @@ function creatMesto(items) {
     const card = evt.target;
     cardBig.src = card.src;
     cardBig.alt = card.alt;
-    galeryBigPopup.querySelector('.pop-up__form-title').textContent = card.alt;
+    cardBigTitle.textContent = card.alt;
     openForm(galeryBigPopup);
   });
   return cardElement;

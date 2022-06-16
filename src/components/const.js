@@ -2,8 +2,8 @@
 //pop-up
 export const profilePopup = document.querySelector('#profile-popup');
 export const galeryPopup = document.querySelector('#galery-popup');
-export const galeryBigPopup = document.querySelector('#galery-image');
-export const popups = document.querySelectorAll('.pop-up')
+export const galeryBigPopup = document.querySelector('.popup__galery-image');
+export const btmClosed = document.querySelectorAll('.pop-up__close');
 //button-open
 export const profileEdit = document.querySelector('#edit');
 export const cardAdd = document.querySelector('#add');
@@ -18,7 +18,7 @@ export const inputLinkMesto = document.querySelector('#link-mesto'); // инпу
 export const profileTitle = document.querySelector('.profile__title');
 export const profileAbout = document.querySelector('.profile__subtitle');
 export const cardBig = document.querySelector('.popup__image');
-export const cardBigTitle = document.querySelector('pop-up__form-title_galery-title');
+export const cardBigTitle = document.querySelector('.pop-up__form-title_galery-title');
 export const card = document.querySelector('.card');
 export const cardImage = document.querySelector('.card__image');
 export const galery = document.querySelector('.galery');
