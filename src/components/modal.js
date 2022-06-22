@@ -5,8 +5,8 @@ export { handlerFormSubmit, copyText, closeForm, openForm, sortPopup, clearForm 
 // profile-popup
 function handlerFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = nameInput.value;
-  profileAbout.textContent = jobInput.value;
+  profileTitle.textContent = nameInput.value; // заменить на api отправить на сервер из импута
+  profileAbout.textContent = jobInput.value; // заменить на api отправить на сервер из импута
   clearForm(profilePopup);
 };
 
