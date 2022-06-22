@@ -8,7 +8,7 @@ const req = {
   }
 }
 
-
+console.log('ВВВВВВВВВВВВВВВВВВВВВВВ');
 
 // получаем данные профиля
 export function updateProfile() {
@@ -36,15 +36,7 @@ export function postProfiles(req, res) {
     return Promise.reject(` Error: ${res.status}`);
   }
 /*
-return fetch(`${req.url}/users/me`, {
-  method: 'GET',
-  headers: req.headers,
-})
-  .then(res => res.json())
-  .then((result) => {
-    console.log(result);
-  });
-/*
+
 
 
 

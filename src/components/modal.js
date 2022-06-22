@@ -9,7 +9,6 @@ function handlerFormSubmit(evt) {
   profileAbout.textContent = jobInput.value; // заменить на api отправить на сервер из импута
   clearForm(profilePopup);
 };
-
 function copyText() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileAbout.textContent;
