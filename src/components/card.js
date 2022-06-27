@@ -9,49 +9,26 @@ export let userAbout = '';
 export let imgAvatar = '';
 
 Promise.all([getUsers(), getCards()]).then(([users, cards]) => {
+  console.log(users)
+  console.log(cards)
   userId = users._id;
+  console.log(userId);
   userName = users.name;
   userAbout = users.about;
   imgAvatar = users.avatar;
-  creatMesto(cards)
+  initialCards(cards)
 })
   .catch((err) => {
     console.error(err);
   })
 
 
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-initialCards.forEach(items => {
-  const elem = creatMesto(items);
-  galery.prepend(elem);
-});
-
+function initialCards(cards) {
+  cards.forEach(items => {
+    const elem = creatMesto(items);
+    galery.prepend(elem);
+  })
+}
 function saveCard(evt) {
   evt.preventDefault();
   const popup = evt.target.closest('.pop-up_opened');

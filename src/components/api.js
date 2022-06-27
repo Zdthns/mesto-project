@@ -11,7 +11,6 @@ const config = {
 function checkResponse(res) {
   if (res.ok) {
     return res.json();
-
   } else {
     return Promise.reject(res.status)
   }
@@ -19,7 +18,7 @@ function checkResponse(res) {
 
 // получить пользователей
 export function getUsers() {
-  fetch(`${config.url}/users/me`, {
+  return fetch(`${config.url}/users/me`, {
     method: 'GET',
     headers: config.headers
   })
