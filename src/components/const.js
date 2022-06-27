@@ -11,6 +11,7 @@ export const cardAdd = document.querySelector('#add');
 //input
 export const nameInput = document.querySelector('#name');
 export const jobInput = document.querySelector('#about');
+//export const avatarInput = document.querySelector('#');
 export const inputNameMesto = document.querySelector('#name-mesto'); // инпут
 export const inputLinkMesto = document.querySelector('#link-mesto'); // инпут
 
@@ -28,3 +29,10 @@ export const cardTemplate = document.querySelector('.template-card').content;
 //form
 export const galeryForm = document.querySelector('#form__mesto');
 export const profileForm = document.querySelector('#form__autor-info');
+
+//avatar
+export const avatarPopup = document.querySelector('#avatar-popup');
+export const avatarOverlay = document.querySelector('.profile__overlay');
+export const profileAvatar = document.querySelector('.profile__img');
+export const avatarInput = document.querySelector('#link-avatar');
+export const avatarForm = document.querySelector('#form__avatar');

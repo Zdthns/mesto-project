@@ -1,14 +1,30 @@
-import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput, galeryBigPopup } from './const.js';
+import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput, galeryBigPopup, avatarPopup } from './const.js';
 import { openForm, closeForm } from './utils.js'
-export { handlerFormSubmit, copyText, closeForm, openForm, sortPopup, clearForm };
+export { handlerFormSubmit, editavatar, copyText, closeForm, openForm, sortPopup, clearForm };
+
+
 
 // profile-popup
 function handlerFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = nameInput.value; // заменить на api отправить на сервер из импута
-  profileAbout.textContent = jobInput.value; // заменить на api отправить на сервер из импута
+  profileTitle.textContent = nameInput.value;
+  profileAbout.textContent = jobInput.value;
+
+  const data = {
+    name: nameInput.value,
+    about: jobInput.value,
+  }
+  createUsersProfile(data)
   clearForm(profilePopup);
 };
+function editavatar(evt) {
+  profileAvatar.src = avatarInput.value;
+  const data = {
+    avatar: avatarInput.value
+  }
+  clearForm(avatarPopup);
+}
+
 function copyText() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileAbout.textContent;

@@ -1,7 +1,24 @@
 import { clearForm } from './modal.js';
 import { openForm } from './utils.js';
 import { inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle } from './const.js';
+import { getUsers, getCards } from './api.js'
 export { saveCard, addCard };
+export let userId = '';
+export let userName = '';
+export let userAbout = '';
+export let imgAvatar = '';
+
+Promise.all([getUsers(), getCards()]).then(([users, cards]) => {
+  userId = users._id;
+  userName = users.name;
+  userAbout = users.about;
+  imgAvatar = users.avatar;
+  creatMesto(cards)
+})
+  .catch((err) => {
+    console.error(err);
+  })
+
 
 
 const initialCards = [

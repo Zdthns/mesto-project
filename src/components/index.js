@@ -1,18 +1,31 @@
 import '../pages/index.css';
-
 import { enableValidation } from './validate.js';
 import { handlerFormSubmit, copyText, sortPopup } from './modal.js';
 import { openForm } from './utils.js';
 import { saveCard } from './card.js';
-import { galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, btmClosed } from './const.js';
+import { avatarForm, galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, btmClosed, avatarOverlay, profileAvatar, avatarPopup } from './const.js';
 
-// слушатели:
+
+
 
 // openForm
 cardAdd.addEventListener('click', evt => {
   openForm(galeryPopup);
 });
 profileEdit.addEventListener('click', copyText);
+
+avatarOverlay.addEventListener('click', evt => {
+  openForm(avatarPopup);
+});
+
+profileAvatar.addEventListener('mouseover', () => {
+  avatarOverlay.style.display = 'block';
+})
+
+profileAvatar.addEventListener('mouseout', () => {
+  avatarOverlay.style.display = 'none';
+})
+
 
 //closeForm
 
@@ -27,8 +40,11 @@ btmClosed.forEach((btm) => {
 
 
 //submit
-profileForm.addEventListener('submit', handlerFormSubmit)
+avatarForm.addEventListener('submit', evt => {
+  editavatar(evt);
+})
 
+profileForm.addEventListener('submit', handlerFormSubmit)
 
 galeryForm.addEventListener('submit', evt => {
   saveCard(evt);
@@ -44,5 +60,4 @@ export const classList = {
   errorClass: 'form__item-error'
 };
 
-enableValidation(classList)
-
+enableValidation(classList);
