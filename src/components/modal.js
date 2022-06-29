@@ -1,27 +1,45 @@
-import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput, galeryBigPopup, avatarPopup } from './const.js';
+import { profileAvatar, profilePopup, profileTitle, profileAbout, nameInput, jobInput, avatarPopup, avatarInput } from './const.js';
 import { openForm, closeForm } from './utils.js'
-export { handlerFormSubmit, editavatar, copyText, closeForm, openForm, sortPopup, clearForm };
+import { getUsers, addAvatar, editUsersProfile } from './api.js';
 
+export { handlerFormSubmit, editAvatar, copyText, closeForm, openForm, sortPopup, clearForm };
 
+export let userId = '';
+export let userName = '';
+export let userAbout = '';
+export let imgAvatar = '';
 
+getUsers()
+  .then(users => {
+    userId = users._id;
+    userName = users.name;
+    userAbout = users.about;
+    imgAvatar = users.avatar;
+  })
+  .catch((err) => {
+    console.error(err);
+  })
 // profile-popup
 function handlerFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = nameInput.value;
-  profileAbout.textContent = jobInput.value;
-
+  profileTitle.textContent = userName;
+  profileAbout.textContent = userAbout;
+  profileAvatar.src = imgAvatar;
   const data = {
     name: nameInput.value,
     about: jobInput.value,
   }
-  createUsersProfile(data)
+  editUsersProfile(data)
   clearForm(profilePopup);
 };
-function editavatar(evt) {
-  profileAvatar.src = avatarInput.value;
+//редактор аватарки
+function editAvatar(evt) {
+  evt.preventDefault();
+  profileAvatar.src = avatarInput.value
   const data = {
     avatar: avatarInput.value
   }
+  addAvatar(data);
   clearForm(avatarPopup);
 }
 

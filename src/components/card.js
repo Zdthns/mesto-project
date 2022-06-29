@@ -1,21 +1,13 @@
-import { clearForm } from './modal.js';
+import { clearForm, userId } from './modal.js';
 import { openForm } from './utils.js';
 import { inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle } from './const.js';
-import { getUsers, getCards } from './api.js'
+import { getCards } from './api.js'
 export { saveCard, addCard };
-export let userId = '';
-export let userName = '';
-export let userAbout = '';
-export let imgAvatar = '';
 
-Promise.all([getUsers(), getCards()]).then(([users, cards]) => {
-  console.log(users)
+
+getCards().then((cards) => {
   console.log(cards)
-  userId = users._id;
-  console.log(userId);
-  userName = users.name;
-  userAbout = users.about;
-  imgAvatar = users.avatar;
+
   initialCards(cards)
 })
   .catch((err) => {
@@ -55,6 +47,8 @@ function creatMesto(items) {
   const imgCard = cardElement.querySelector('.card__image');
   const imgName = cardElement.querySelector('.card__name');
 
+  const IdCard = items['_id'];
+  const owner = items['owner'];
   imgCard.src = items['link'];
   imgCard.alt = items['name'];
   imgName.textContent = items['name'];
@@ -65,6 +59,9 @@ function creatMesto(items) {
     cardLike.classList.toggle('card__like_activ');
   });
   // удалениe карточки
+  if (!owner === userId) {
+    cardDelete.style.display = 'none';
+  }
   cardDelete.addEventListener('click', evt => {
     const cardDelete = evt.target;
     cardDelete.closest('.card').remove();

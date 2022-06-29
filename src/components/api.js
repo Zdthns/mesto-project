@@ -27,18 +27,19 @@ export function getUsers() {
 
 // отправка отредактированных данных пользователя на сервер
 export function editUsersProfile(data) {
+  console.log(data)
   return fetch(`${config.url}/users/me`, {
     method: 'PATH',
     headers: config.headers,
     body: JSON.stringify({
       name: data.name,
-      about: data.about
+      about: data.about,
     })
   })
     .then(checkResponse)
 }
 // отправка отредактированной аватарки
-function editAvatar(data) {
+export function addAvatar(data) {
   return fetch(`${config.url}/users/me/avatar`, {
     method: 'PATH',
     headers: config.headers,
@@ -57,7 +58,7 @@ export function getCards() {
 }
 
 //отправить новую картинку
-function creatNewCard(data) {
+export function creatNewCard(data) {
   return fetch(`${config.url}/cards`, {
     method: 'POST',
     headers: config.headers,
@@ -70,7 +71,7 @@ function creatNewCard(data) {
 }
 
 // удалить картинку с сервера
-function deleteCard(data) {
+export function deleteCard(data) {
   return fetch(`${config.url}/cards/${data.id}`, {
     method: 'DELETE',
     headers: config.headers,
@@ -78,7 +79,7 @@ function deleteCard(data) {
     .then(checkResponse)
 }
 // удалить лайк с сервера
-function deleteLike(data) {
+export function deleteLike(data) {
   return fetch(`${config.url}/cards/likes/${data.id}`, {
     method: 'DELETE',
     headers: config.headers,
@@ -86,7 +87,7 @@ function deleteLike(data) {
     .then(checkResponse)
 }
 // получить лайк с сервера
-function addLike(data) {
+export function addLike(data) {
   return fetch(`${config.url}/cards/likes${data.id}`, {
     method: 'PUT',
     headers: config.headers,

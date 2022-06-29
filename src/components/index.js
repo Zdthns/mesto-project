@@ -7,7 +7,6 @@ import { avatarForm, galeryPopup, cardAdd, profileEdit, galeryForm, profileForm,
 
 
 
-
 // openForm
 cardAdd.addEventListener('click', evt => {
   openForm(galeryPopup);
@@ -17,7 +16,9 @@ profileEdit.addEventListener('click', copyText);
 avatarOverlay.addEventListener('click', evt => {
   openForm(avatarPopup);
 });
-
+avatarForm.addEventListener('submit', evt => {
+  editavatar(evt);
+})
 profileAvatar.addEventListener('mouseover', () => {
   avatarOverlay.style.display = 'block';
 })
