@@ -79,16 +79,16 @@ export function deleteCard(data) {
     .then(checkResponse)
 }
 // удалить лайк с сервера
-export function deleteLike(data) {
-  return fetch(`${config.url}/cards/likes/${data.id}`, {
+export function deleteLikeCard(data) {
+  return fetch(`${config.url}/cards/likes/${data}`, {
     method: 'DELETE',
     headers: config.headers,
   })
     .then(checkResponse)
 }
 // получить лайк с сервера
-export function addLike(data) {
-  return fetch(`${config.url}/cards/likes${data.id}`, {
+export function addLikeCard(data) {
+  return fetch(`${config.url}/cards/likes/${data}`, {
     method: 'PUT',
     headers: config.headers,
   })

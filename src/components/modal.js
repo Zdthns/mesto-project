@@ -4,10 +4,12 @@ import { getUsers, addAvatar, editUsersProfile } from './api.js';
 
 export { handlerFormSubmit, editAvatar, copyText, closeForm, openForm, sortPopup, clearForm };
 
+
 export let userId = '';
 export let userName = '';
 export let userAbout = '';
 export let imgAvatar = '';
+
 
 getUsers()
   .then(users => {
@@ -19,18 +21,23 @@ getUsers()
   .catch((err) => {
     console.error(err);
   })
+
+
 // profile-popup
 function handlerFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = userName;
-  profileAbout.textContent = userAbout;
-  profileAvatar.src = imgAvatar;
+
   const data = {
     name: nameInput.value,
     about: jobInput.value,
   }
   editUsersProfile(data)
-  clearForm(profilePopup);
+    .then(() => {
+      profileTitle.textContent = userName;
+      profileAbout.textContent = userAbout;
+      clearForm(profilePopup);
+    })
+
 };
 //редактор аватарки
 function editAvatar(evt) {

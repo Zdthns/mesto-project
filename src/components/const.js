@@ -4,14 +4,14 @@ export const profilePopup = document.querySelector('#profile-popup');
 export const galeryPopup = document.querySelector('#galery-popup');
 export const galeryBigPopup = document.querySelector('.popup__galery-image');
 export const btmClosed = document.querySelectorAll('.pop-up__close');
-//button-open
+//button
 export const profileEdit = document.querySelector('#edit');
 export const cardAdd = document.querySelector('#add');
 
 //input
 export const nameInput = document.querySelector('#name');
 export const jobInput = document.querySelector('#about');
-//export const avatarInput = document.querySelector('#');
+export const avatarInput = document.querySelector('#link-avatar');
 export const inputNameMesto = document.querySelector('#name-mesto'); // инпут
 export const inputLinkMesto = document.querySelector('#link-mesto'); // инпут
 
@@ -34,5 +34,4 @@ export const profileForm = document.querySelector('#form__autor-info');
 export const avatarPopup = document.querySelector('#avatar-popup');
 export const avatarOverlay = document.querySelector('.profile__overlay');
 export const profileAvatar = document.querySelector('.profile__img');
-export const avatarInput = document.querySelector('#link-avatar');
 export const avatarForm = document.querySelector('#form__avatar');
