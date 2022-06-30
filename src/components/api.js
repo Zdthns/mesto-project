@@ -27,9 +27,10 @@ export function getUsers() {
 
 // отправка отредактированных данных пользователя на сервер
 export function editUsersProfile(data) {
-  console.log(data)
+  console.log(data);
+
   return fetch(`${config.url}/users/me`, {
-    method: 'PATH',
+    method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
       name: data.name,
@@ -41,7 +42,7 @@ export function editUsersProfile(data) {
 // отправка отредактированной аватарки
 export function addAvatar(data) {
   return fetch(`${config.url}/users/me/avatar`, {
-    method: 'PATH',
+    method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
       avatar: data.avatar

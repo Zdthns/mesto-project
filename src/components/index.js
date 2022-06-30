@@ -1,6 +1,6 @@
 import '../pages/index.css';
 import { enableValidation } from './validate.js';
-import { handlerFormSubmit, copyText, sortPopup } from './modal.js';
+import { handlerFormSubmit, copyText, sortPopup, editAvatar } from './modal.js';
 import { openForm } from './utils.js';
 import { saveCard } from './card.js';
 import { avatarForm, galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, btmClosed, avatarOverlay, profileAvatar, avatarPopup } from './const.js';
@@ -16,9 +16,7 @@ profileEdit.addEventListener('click', copyText);
 avatarOverlay.addEventListener('click', evt => {
   openForm(avatarPopup);
 });
-avatarForm.addEventListener('submit', evt => {
-  editavatar(evt);
-})
+
 profileAvatar.addEventListener('mouseover', () => {
   avatarOverlay.style.display = 'block';
 })
@@ -41,14 +39,14 @@ btmClosed.forEach((btm) => {
 
 
 //submit
-avatarForm.addEventListener('submit', evt => {
-  editavatar(evt);
-})
-
 profileForm.addEventListener('submit', handlerFormSubmit)
 
 galeryForm.addEventListener('submit', evt => {
   saveCard(evt);
+})
+
+avatarForm.addEventListener('submit', evt => {
+  editAvatar(evt);
 })
 
 /*Формы */

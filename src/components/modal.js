@@ -31,10 +31,11 @@ function handlerFormSubmit(evt) {
     name: nameInput.value,
     about: jobInput.value,
   }
+
   editUsersProfile(data)
     .then(() => {
-      profileTitle.textContent = userName;
-      profileAbout.textContent = userAbout;
+      profileTitle.textContent = data.name;
+      profileAbout.textContent = data.about;
       clearForm(profilePopup);
     })
 
@@ -42,11 +43,13 @@ function handlerFormSubmit(evt) {
 //редактор аватарки
 function editAvatar(evt) {
   evt.preventDefault();
-  profileAvatar.src = avatarInput.value
   const data = {
     avatar: avatarInput.value
   }
-  addAvatar(data);
+  addAvatar(data)
+    .then((res) => {
+      profileAvatar.src = res.avatar;
+    })
   clearForm(avatarPopup);
 }
 
