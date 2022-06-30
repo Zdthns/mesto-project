@@ -73,7 +73,7 @@ export function creatNewCard(data) {
 
 // удалить картинку с сервера
 export function deleteCard(data) {
-  return fetch(`${config.url}/cards/${data.id}`, {
+  return fetch(`${config.url}/cards/${data}`, {
     method: 'DELETE',
     headers: config.headers,
   })

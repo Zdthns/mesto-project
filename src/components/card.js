@@ -1,7 +1,7 @@
 import { clearForm, userId } from './modal.js';
 import { openForm } from './utils.js';
 import { inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle } from './const.js';
-import { addLikeCard, deleteLikeCard, getCards } from './api.js'
+import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
 export { saveCard, addCard };
 
 //console.log(userId);
@@ -35,7 +35,9 @@ function addCard(inputLink, inputName) {
     link: inputLink,
   }
   creatNewCard(data)
-
+    .then((data) => {
+      creatMesto(data);
+    })
 };
 
 function creatMesto(items) {
