@@ -3,10 +3,8 @@ const config = {
   url: 'https://nomoreparties.co/v1/plus-cohort-12',
   headers: {
     authorization: '86c85002-0798-4a86-ac2a-c25758aa079d',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   }
-
-  // проверка ответа
 };
 function checkResponse(res) {
   if (res.ok) {
