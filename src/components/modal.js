@@ -1,14 +1,60 @@
-import { spans, profilePopup, profileTitle, profileAbout, nameInput, jobInput, galeryBigPopup } from './const.js';
-import { openForm, closeForm } from './utils.js'
-export { handlerFormSubmit, copyText, closeForm, openForm, sortPopup, clearForm };
+import { profileAvatar, profilePopup, profileTitle, profileAbout, nameInput, jobInput, avatarPopup, avatarInput, profileFormSubmit, avatarFormSubmit } from './const.js';
+import { openForm, closeForm, loadingData, upLoad } from './utils.js'
+import { getUsers, addAvatar, editUsersProfile } from './api.js';
 
-// profile-popup
+export { handlerFormSubmit, editAvatar, copyText, closeForm, openForm, sortPopup, clearForm };
+
+
+export let userId = '';
+export let userName = '';
+export let userAbout = '';
+export let imgAvatar = '';
+
+
+getUsers()
+  .then(users => {
+    userId = users._id;
+    userName = users.name;
+    userAbout = users.about;
+    imgAvatar = users.avatar;
+  })
+  .catch((err) => {
+    console.error(err);
+  })
+
 function handlerFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = nameInput.value;
-  profileAbout.textContent = jobInput.value;
-  clearForm(profilePopup);
+  loadingData(true, profileFormSubmit, "Сохранение...")
+  const data = {
+    name: nameInput.value,
+    about: jobInput.value,
+  }
+
+  editUsersProfile(data)
+    .then(() => {
+      profileTitle.textContent = data.name;
+      profileAbout.textContent = data.about;
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => loadingData(false, profileFormSubmit, 'Сохранить'))
+  clearForm(profilePopup)
 };
+//редактор аватарки
+function editAvatar(evt) {
+  evt.preventDefault();
+  loadingData(true, avatarFormSubmit, 'Сохранение...')
+  const data = {
+    avatar: avatarInput.value
+  }
+  addAvatar(data)
+    .then((res) => {
+      profileAvatar.src = res.avatar;
+    })
+  loadingData(false, avatarFormSubmit, 'Cохранить');
+  clearForm(avatarPopup);
+}
 
 function copyText() {
   nameInput.value = profileTitle.textContent;
@@ -34,12 +80,15 @@ function clearForm(popup) {
   const spans = popup.querySelectorAll('.form__item-error');// спрятать спан с ошибкой
   for (const span of spans) {
     span.textContent = '';
+
   };
 
   const input = popup.querySelectorAll('.form__item')
   input.forEach(elem => {
     elem.classList.remove('form__input-error')// удаляем красную черту
   })
+
   closeForm(popup);
+
 }
 

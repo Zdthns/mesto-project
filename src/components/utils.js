@@ -23,9 +23,16 @@ export function openForm(popup) {
   }
 };
 
+export function loadingData(Loading, btn, btnDefaultText) {
+  if (Loading) {
+    btn.textContent = 'Сохранение...';
+  } else {
+    btn.textContent = btnDefaultText;
+  }
+};
 
 //closes
 export function closeForm(popup) {
-  popup.classList.remove('pop-up_opened');
+  popup.classList.remove('pop-up_opened')
 };
 

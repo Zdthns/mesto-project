@@ -1,87 +1,135 @@
-import { clearForm } from './modal.js';
-import { openForm } from './utils.js';
-import { inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle } from './const.js';
+import { clearForm, userId } from './modal.js';
+import { openForm, closeForm, loadingData } from './utils.js';
+import { btnFormCardDelete, deletOppenPopup, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
+import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
 export { saveCard, addCard };
 
+//console.log(userId);
+getCards().then((cards) => {
+  initialCards(cards)
+})
+  .catch((err) => {
+    console.error(err);
+  })
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-initialCards.forEach(items => {
-  const elem = creatMesto(items);
-  galery.prepend(elem);
-});
 
+function initialCards(cards) {
+  cards.forEach(items => {
+    const elem = creatMesto(items);
+    galery.append(elem);
+  })
+}
 function saveCard(evt) {
   evt.preventDefault();
+  loadingData(true, mestoFormSubmit, 'Сохранение...')
   const popup = evt.target.closest('.pop-up_opened');
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
   addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
+  loadingData(false, mestoFormSubmit, 'Добавить');
   clearForm(popup);
 };
 
 function addCard(inputLink, inputName) {
-  const items = {
+  const data = {
     name: inputName,
     link: inputLink,
   }
-  const cardElement = creatMesto(items);
-  galery.prepend(cardElement);
-
+  creatNewCard(data)
+    .then((card) => {
+      //console.log(card);
+      galery.append(creatMesto(card));
+    })
+    .catch((err) => {
+      console.error(err)
+    })
 };
 
 function creatMesto(items) {
+  // создаем контейнер
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   const cardLike = cardElement.querySelector('.card__like');
   const cardDelete = cardElement.querySelector('.card__delete');
   const imgCard = cardElement.querySelector('.card__image');
   const imgName = cardElement.querySelector('.card__name');
+  const likeCount = cardElement.querySelector('.card__like-count');
 
+  // получаем данные карточки
+  const idCard = items['_id'];
+  const owner = items['owner'];
+  const likes = items['likes'];
   imgCard.src = items['link'];
   imgCard.alt = items['name'];
   imgName.textContent = items['name'];
+  likeCount.textContent = likes.length;
 
-  // like
-  cardLike.addEventListener('click', evt => {
-    const cardLike = evt.target;
-    cardLike.classList.toggle('card__like_activ');
-  });
+  // рисуем лайки
+
+  if (likes) {
+    addLike(cardElement, likeCount, idCard);
+
+    likes.forEach((elem) => {
+      if (likes.length > 0 && idCard === userId) {
+        cardLike.classList.toggle('card__like_activ');
+      }
+    })
+  } else {
+    likeCount.textContent = 0;
+  }
+
+  function addLike(cardElement, likeCount, idCard) {
+    const cardLike = cardElement.querySelector('.card__like');
+
+    cardLike.addEventListener('click', evt => {
+      if (!evt.target.classList.contains('card__like_activ')) {
+        addLikeCard(idCard)
+          .then(item => {
+            evt.target.classList.add('card__like_activ');
+            likeCount.textContent = item.likes.length;
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      } else {
+        deleteLikeCard(idCard)
+          .then(item => {
+            evt.target.classList.remove('card__like_activ');
+            likeCount.textContent = item.likes.length;
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      }
+    })
+  }
+
   // удалениe карточки
+  if (owner._id === userId) {
+    const cardDelete = cardElement.querySelector('.card__delete');
+    cardDelete.style.display = 'block';
+  }
+
   cardDelete.addEventListener('click', evt => {
-    const cardDelete = evt.target;
-    cardDelete.closest('.card').remove();
-  });
+    openForm(deletOppenPopup)
+    btnFormCardDelete.addEventListener('click', () => {
+      deleteCard(idCard)
+        .then(() => {
+          evt.target.closest('.card').remove(cardElement);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      closeForm(deletOppenPopup);
+    })
+  })
+
   imgCard.addEventListener('click', evt => {
     const card = evt.target;
     cardBig.src = card.src;
     cardBig.alt = card.alt;
     cardBigTitle.textContent = card.alt;
     openForm(galeryBigPopup);
-  });
+  })
   return cardElement;
-};
+}
 

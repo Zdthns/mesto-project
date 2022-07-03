@@ -1,0 +1,12 @@
+.profile__overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: .5s ease;
+  background-image: url('../../../image/profile/editavatar.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
