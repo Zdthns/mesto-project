@@ -1,6 +1,6 @@
 import { clearForm, userId } from './modal.js';
 import { openForm, closeForm, loadingData } from './utils.js';
-import { btnFormCardDelete, deletOppenPopup, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
+import { btnFormCardDelete, popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
 import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
 export { saveCard, addCard };
 
@@ -110,7 +110,7 @@ function creatMesto(items) {
   }
 
   cardDelete.addEventListener('click', evt => {
-    openForm(deletOppenPopup)
+    openForm(popupCardDelete);
     btnFormCardDelete.addEventListener('click', () => {
       deleteCard(idCard)
         .then(() => {
@@ -119,7 +119,7 @@ function creatMesto(items) {
         .catch((err) => {
           console.log(err);
         })
-      closeForm(deletOppenPopup);
+      closeForm(popupCardDelete);
     })
   })
 

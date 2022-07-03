@@ -40,7 +40,7 @@ export const profileAvatar = document.querySelector('.profile__img');
 export const avatarForm = document.querySelector('#form__avatar');
 
 
-export const deletOppenPopup = document.querySelector('#popupCardDelete');
+export const popupCardDelete = document.querySelector('#popupCardDelete');
 export const formDeletCard = document.querySelector('.formCardDelete');
 
 //summit 
