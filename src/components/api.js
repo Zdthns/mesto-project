@@ -27,7 +27,6 @@ export function getUsers() {
 
 // отправка отредактированных данных пользователя на сервер
 export function editUsersProfile(data) {
-  console.log(data);
 
   return fetch(`${config.url}/users/me`, {
     method: 'PATCH',

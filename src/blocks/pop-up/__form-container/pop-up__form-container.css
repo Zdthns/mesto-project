@@ -2,10 +2,12 @@
   border-radius: 3%;
   background-color: white;
   padding: 35px 36px 37px;
+  min-width: 358px;
 }
 
 @media (max-width: 425px) {
   .pop-up__form-container {
     padding: 25px 22px;
+    min-width: none;
   }
 }

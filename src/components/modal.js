@@ -1,5 +1,5 @@
-import { profileAvatar, profilePopup, profileTitle, profileAbout, nameInput, jobInput, avatarPopup, avatarInput } from './const.js';
-import { openForm, closeForm } from './utils.js'
+import { profileAvatar, profilePopup, profileTitle, profileAbout, nameInput, jobInput, avatarPopup, avatarInput, profileFormSubmit, avatarFormSubmit } from './const.js';
+import { openForm, closeForm, loadingData, upLoad } from './utils.js'
 import { getUsers, addAvatar, editUsersProfile } from './api.js';
 
 export { handlerFormSubmit, editAvatar, copyText, closeForm, openForm, sortPopup, clearForm };
@@ -22,11 +22,9 @@ getUsers()
     console.error(err);
   })
 
-
-// profile-popup
 function handlerFormSubmit(evt) {
   evt.preventDefault();
-
+  loadingData(true, profileFormSubmit, "Сохранение...")
   const data = {
     name: nameInput.value,
     about: jobInput.value,
@@ -36,13 +34,17 @@ function handlerFormSubmit(evt) {
     .then(() => {
       profileTitle.textContent = data.name;
       profileAbout.textContent = data.about;
-      clearForm(profilePopup);
     })
-
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => loadingData(false, profileFormSubmit, 'Сохранить'))
+  clearForm(profilePopup)
 };
 //редактор аватарки
 function editAvatar(evt) {
   evt.preventDefault();
+  loadingData(true, avatarFormSubmit, 'Сохранение...')
   const data = {
     avatar: avatarInput.value
   }
@@ -50,6 +52,7 @@ function editAvatar(evt) {
     .then((res) => {
       profileAvatar.src = res.avatar;
     })
+  loadingData(false, avatarFormSubmit, 'Cохранить');
   clearForm(avatarPopup);
 }
 
@@ -77,12 +80,15 @@ function clearForm(popup) {
   const spans = popup.querySelectorAll('.form__item-error');// спрятать спан с ошибкой
   for (const span of spans) {
     span.textContent = '';
+
   };
 
   const input = popup.querySelectorAll('.form__item')
   input.forEach(elem => {
     elem.classList.remove('form__input-error')// удаляем красную черту
   })
+
   closeForm(popup);
+
 }
 

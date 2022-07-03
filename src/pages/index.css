@@ -33,7 +33,7 @@
 @import url(../blocks/card/__like/_activ/card__like_activ.css);
 @import url(../blocks/card/__name/card__name.css);
 @import url(../blocks/card/__delete/card__delete.css);
-@import url(../blocks/card/__like-count/card__like-count.css);
+@import url(../blocks/card/card__like-count/card__like-count.css);
 
 
 /*galery*/

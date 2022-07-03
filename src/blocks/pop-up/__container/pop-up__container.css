@@ -1,6 +1,6 @@
 .pop-up__container {
   margin: 0 auto;
-  max-width: 430px;
+  width: 430px;
   display: grid;
   justify-items: end;
   border-radius: 3%;

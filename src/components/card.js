@@ -1,11 +1,10 @@
 import { clearForm, userId } from './modal.js';
-import { openForm } from './utils.js';
-import { inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle } from './const.js';
+import { openForm, closeForm, loadingData } from './utils.js';
+import { btnFormCardDelete, deletOppenPopup, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
 import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
 export { saveCard, addCard };
 
 //console.log(userId);
-
 getCards().then((cards) => {
   initialCards(cards)
 })
@@ -17,15 +16,17 @@ getCards().then((cards) => {
 function initialCards(cards) {
   cards.forEach(items => {
     const elem = creatMesto(items);
-    galery.prepend(elem);
+    galery.append(elem);
   })
 }
 function saveCard(evt) {
   evt.preventDefault();
+  loadingData(true, mestoFormSubmit, 'Сохранение...')
   const popup = evt.target.closest('.pop-up_opened');
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
   addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
+  loadingData(false, mestoFormSubmit, 'Добавить');
   clearForm(popup);
 };
 
@@ -35,8 +36,12 @@ function addCard(inputLink, inputName) {
     link: inputLink,
   }
   creatNewCard(data)
-    .then((data) => {
-      creatMesto(data);
+    .then((card) => {
+      //console.log(card);
+      galery.append(creatMesto(card));
+    })
+    .catch((err) => {
+      console.error(err)
     })
 };
 
@@ -49,7 +54,7 @@ function creatMesto(items) {
   const imgName = cardElement.querySelector('.card__name');
   const likeCount = cardElement.querySelector('.card__like-count');
 
-  // получаем шаблон карточки
+  // получаем данные карточки
   const idCard = items['_id'];
   const owner = items['owner'];
   const likes = items['likes'];
@@ -57,11 +62,6 @@ function creatMesto(items) {
   imgCard.alt = items['name'];
   imgName.textContent = items['name'];
   likeCount.textContent = likes.length;
-
-  //console.log(likeCount);
-  //console.log(userId);
-  //console.log(owner._id);
-  //console.log(imgName.textContent);
 
   // рисуем лайки
 
@@ -104,28 +104,32 @@ function creatMesto(items) {
   }
 
   // удалениe карточки
-
   if (owner._id === userId) {
     const cardDelete = cardElement.querySelector('.card__delete');
     cardDelete.style.display = 'block';
   }
-  cardDelete.addEventListener('click', evt => {
-    deleteCard(idCard)
-      .then(() => {
-        evt.target.closest('.card').remove(cardElement);
-      })
-      .catch((err) => {
-        console.log(err);
 
-      })
-  });
+  cardDelete.addEventListener('click', evt => {
+    openForm(deletOppenPopup)
+    btnFormCardDelete.addEventListener('click', () => {
+      deleteCard(idCard)
+        .then(() => {
+          evt.target.closest('.card').remove(cardElement);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      closeForm(deletOppenPopup);
+    })
+  })
+
   imgCard.addEventListener('click', evt => {
     const card = evt.target;
     cardBig.src = card.src;
     cardBig.alt = card.alt;
     cardBigTitle.textContent = card.alt;
     openForm(galeryBigPopup);
-  });
+  })
   return cardElement;
-};
+}
 

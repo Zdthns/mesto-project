@@ -7,6 +7,9 @@ export const btmClosed = document.querySelectorAll('.pop-up__close');
 //button
 export const profileEdit = document.querySelector('#edit');
 export const cardAdd = document.querySelector('#add');
+export const profileFormSubmit = document.querySelector('#save-profile');
+export const mestoFormSubmit = document.querySelector('#mesto-save');
+export const avatarFormSubmit = document.querySelector('#btnAvatar');
 
 //input
 export const nameInput = document.querySelector('#name');
@@ -35,3 +38,14 @@ export const avatarPopup = document.querySelector('#avatar-popup');
 export const avatarOverlay = document.querySelector('.profile__overlay');
 export const profileAvatar = document.querySelector('.profile__img');
 export const avatarForm = document.querySelector('#form__avatar');
+
+
+export const deletOppenPopup = document.querySelector('#popupCardDelete');
+export const formDeletCard = document.querySelector('.formCardDelete');
+
+//summit 
+export const formSummitAvatar = document.querySelector('#btnAvatar');
+export const formSummitProfile = document.querySelector('#save-profile');
+export const formSummitMesto = document.querySelector('#mesto-save');
+export const btnFormCardDelete = document.querySelector('#cdrdDelete');
+

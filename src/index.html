@@ -47,7 +47,8 @@
             <input class="form__item" name="aboutAutor" id="about" type="text" required value="" minlength="2"
               maxlength="200" placeholder="Дополнительная информация" autofocus>
             <span class="form__item-error about-error"></span>
-            <button name='btnAutor' type="submit" form="form__autor-info" class="form__save">Сохранить</button>
+            <button id='save-profile' name='btnAutor' type="submit" form="form__autor-info"
+              class="form__save">Сохранить</button>
           </fieldset>
         </form>
       </div>
@@ -67,7 +68,7 @@
               placeholder="Ссылка на картинку">
             <span class="form__item-error link-mesto-error"></span>
             <button name='btnMesto' id="mesto-save" type="submit" form="form__mesto"
-              class="form__save">Сохранить</button>
+              class="form__save ">Добавить</button>
           </fieldset>
         </form>
 
@@ -85,9 +86,21 @@
             <input class="form__item" name="linkAvatar" id="link-avatar" required type="url" value=""
               placeholder="введите ссылку на фото">
             <span class="form__item-error link-avatar-error"></span>
-            <button name='btnAvatar' id="link-save" type="submit" form="form__avatar"
+            <button name='btnAvatar' id="btnAvatar" type="submit" form="form__avatar"
               class="form__save">Сохранить</button>
           </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id='popupCardDelete' class="pop-up">
+    <div class="pop-up__container">
+      <button aria-label="close" type="button" class="pop-up__close  popup__closeCardDelete"></button>
+      <div class="pop-up__form-container">
+        <h2 class="pop-up__form-title">Вы уверены?</h2>
+        <form name='cardDelete' action="#" id="cardDelete" method="GET" class="formCardDelete">
+          <button name='btnCardDelete' id="cdrdDelete" type="submit" form="cardDelete" class="form__save">Да</button>
         </form>
       </div>
     </div>

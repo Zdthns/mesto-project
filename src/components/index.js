@@ -49,7 +49,6 @@ avatarForm.addEventListener('submit', evt => {
   editAvatar(evt);
 })
 
-/*Формы */
 export const classList = {
   formSelector: '.form',
   inputSelector: '.form__item',
