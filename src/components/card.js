@@ -2,15 +2,7 @@ import { clearForm, userId } from './modal.js';
 import { openForm, closeForm, loadingData } from './utils.js';
 import { btnFormCardDelete, popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
 import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
-export { saveCard, addCard };
-
-//console.log(userId);
-getCards().then((cards) => {
-  initialCards(cards)
-})
-  .catch((err) => {
-    console.error(err);
-  })
+export { saveCard, addCard, initialCards };
 
 
 function initialCards(cards) {
@@ -107,22 +99,22 @@ function creatMesto(items) {
   if (owner._id === userId) {
     const cardDelete = cardElement.querySelector('.card__delete');
     cardDelete.style.display = 'block';
-  }
 
-  cardDelete.addEventListener('click', evt => {
-    openForm(popupCardDelete);
-    btnFormCardDelete.addEventListener('click', () => {
-      deleteCard(idCard)
-        .then(() => {
-          evt.target.closest('.card').remove(cardElement);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-      closeForm(popupCardDelete);
+    cardDelete.addEventListener('click', evt => {
+      openForm(popupCardDelete);
+
+      btnFormCardDelete.addEventListener('click', () => {
+        deleteCard(idCard)
+          .then(() => {
+            evt.target.closest('.card').remove(cardElement);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+        closeForm(popupCardDelete);
+      })
     })
-  })
-
+  }
   imgCard.addEventListener('click', evt => {
     const card = evt.target;
     cardBig.src = card.src;

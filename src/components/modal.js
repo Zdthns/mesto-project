@@ -1,6 +1,7 @@
 import { profileAvatar, profilePopup, profileTitle, profileAbout, nameInput, jobInput, avatarPopup, avatarInput, profileFormSubmit, avatarFormSubmit } from './const.js';
-import { openForm, closeForm, loadingData, upLoad } from './utils.js'
-import { getUsers, addAvatar, editUsersProfile } from './api.js';
+import { openForm, closeForm, loadingData } from './utils.js'
+import { getUsers, getCards, addAvatar, editUsersProfile } from './api.js';
+import { initialCards } from './card.js'
 
 export { handlerFormSubmit, editAvatar, copyText, closeForm, openForm, sortPopup, clearForm };
 
@@ -10,17 +11,19 @@ export let userName = '';
 export let userAbout = '';
 export let imgAvatar = '';
 
-
-getUsers()
-  .then(users => {
-    userId = users._id;
-    userName = users.name;
-    userAbout = users.about;
-    imgAvatar = users.avatar;
+Promise.all([getUsers(), getCards()])
+  .then(([user, cards]) => {
+    userId = user._id;
+    userName = user.name;
+    userAbout = user.about;
+    imgAvatar = user.avatar;
+    initialCards(cards);
   })
   .catch((err) => {
-    console.error(err);
+    console.log(err);
   })
+
+
 
 function handlerFormSubmit(evt) {
   evt.preventDefault();
@@ -52,7 +55,9 @@ function editAvatar(evt) {
     .then((res) => {
       profileAvatar.src = res.avatar;
     })
-  loadingData(false, avatarFormSubmit, 'Cохранить');
+    .finally(() => {
+      loadingData(false, avatarFormSubmit, 'Cохранить');
+    })
   clearForm(avatarPopup);
 }
 
