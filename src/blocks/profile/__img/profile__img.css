@@ -1,8 +1,8 @@
 .profile__img {
   margin: 0;
   max-width: 100%;
+  max-height: auto;
   object-fit: cover;
-  border-radius: 50%;
   cursor: pointer;
 }
 
