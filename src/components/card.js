@@ -3,7 +3,8 @@ import { openForm, closeForm, loadingData } from './utils.js';
 import { btnFormCardDelete, popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
 import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
 export { saveCard, addCard, initialCards };
-
+let cardId = '';
+let removeCard = '';
 
 function initialCards(cards) {
   cards.forEach(items => {
@@ -55,6 +56,10 @@ function creatMesto(items) {
   imgName.textContent = items['name'];
   likeCount.textContent = likes.length;
 
+  if (owner._id === userId) {
+    cardElement.setAttribute('id', idCard);
+  }
+
   // рисуем лайки
 
   if (likes) {
@@ -100,20 +105,14 @@ function creatMesto(items) {
     const cardDelete = cardElement.querySelector('.card__delete');
     cardDelete.style.display = 'block';
 
-    cardDelete.addEventListener('click', evt => {
-      openForm(popupCardDelete);
 
-      btnFormCardDelete.addEventListener('click', () => {
-        deleteCard(idCard)
-          .then(() => {
-            evt.target.closest('.card').remove(cardElement);
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-        closeForm(popupCardDelete);
-      })
+    cardDelete.addEventListener('click', evt => {
+      removeCard = evt.target.closest('.card')
+      cardId = idCard;
+      openForm(popupCardDelete);
     })
+
+
   }
   imgCard.addEventListener('click', evt => {
     const card = evt.target;
@@ -125,3 +124,17 @@ function creatMesto(items) {
   return cardElement;
 }
 
+popupCardDelete.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  deleteCard(cardId)
+    .then(() => {
+      galery.removeChild(removeCard);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      closeForm(popupCardDelete);
+    })
+
+})
