@@ -23,11 +23,9 @@ Promise.all([getUsers(), getCards()])
     console.log(err);
   })
 
-
-
 function handlerFormSubmit(evt) {
   evt.preventDefault();
-  loadingData(true, profileFormSubmit, "Сохранение...")
+  loadingData(true, profileFormSubmit, "Сохранение...");
   const data = {
     name: nameInput.value,
     about: jobInput.value,
@@ -47,7 +45,7 @@ function handlerFormSubmit(evt) {
 //редактор аватарки
 function editAvatar(evt) {
   evt.preventDefault();
-  loadingData(true, avatarFormSubmit, 'Сохранение...')
+  loadingData(true, avatarFormSubmit, 'Сохранение...');
   const data = {
     avatar: avatarInput.value
   }

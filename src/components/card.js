@@ -14,7 +14,7 @@ function initialCards(cards) {
 }
 function saveCard(evt) {
   evt.preventDefault();
-  loadingData(true, mestoFormSubmit, 'Сохранение...')
+  loadingData(true, mestoFormSubmit, 'Сохранение...');
   const popup = evt.target.closest('.pop-up_opened');
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
@@ -136,5 +136,4 @@ popupCardDelete.addEventListener('submit', (evt) => {
     .finally(() => {
       closeForm(popupCardDelete);
     })
-
 })
