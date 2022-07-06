@@ -35,14 +35,13 @@ function handlerFormSubmit(evt) {
     .then(() => {
       profileTitle.textContent = data.name;
       profileAbout.textContent = data.about;
-      clearForm(profilePopup)
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
       setTimeout(() => { loadingData(false, profileFormSubmit, 'Сохранить') }, 3000);
-
+      clearForm(profilePopup)
     })
 };
 //редактор аватарки

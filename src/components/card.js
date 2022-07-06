@@ -33,7 +33,6 @@ function saveCard(evt) {
       setTimeout(() => { loadingData(false, mestoFormSubmit, 'Добавить') }, 3000);
       clearForm(popup);
     })
-
 };
 
 function creatMesto(items) {
