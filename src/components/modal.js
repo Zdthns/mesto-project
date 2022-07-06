@@ -24,8 +24,8 @@ Promise.all([getUsers(), getCards()])
   })
 
 function handlerFormSubmit(evt) {
-  evt.preventDefault();
   loadingData(true, profileFormSubmit, "Сохранение...");
+  evt.preventDefault();
   const data = {
     name: nameInput.value,
     about: jobInput.value,
@@ -35,28 +35,32 @@ function handlerFormSubmit(evt) {
     .then(() => {
       profileTitle.textContent = data.name;
       profileAbout.textContent = data.about;
+      clearForm(profilePopup)
     })
     .catch((err) => {
       console.error(err);
     })
-    .finally(() => loadingData(false, profileFormSubmit, 'Сохранить'))
-  clearForm(profilePopup)
+    .finally(() => {
+      setTimeout(() => { loadingData(false, profileFormSubmit, 'Сохранить') }, 3000);
+
+    })
 };
 //редактор аватарки
 function editAvatar(evt) {
+  loadingData(true, avatarFormSubmit, "Сохранение...");
   evt.preventDefault();
-  loadingData(true, avatarFormSubmit, 'Сохранение...');
   const data = {
     avatar: avatarInput.value
   }
   addAvatar(data)
     .then((res) => {
       profileAvatar.src = res.avatar;
+      clearForm(avatarPopup);
     })
     .finally(() => {
-      loadingData(false, avatarFormSubmit, 'Cохранить');
+      setTimeout(() => { loadingData(false, avatarFormSubmit, 'Сохранить') }, 3000);
     })
-  clearForm(avatarPopup);
+
 }
 
 function copyText() {

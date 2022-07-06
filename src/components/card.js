@@ -1,8 +1,8 @@
 import { clearForm, userId } from './modal.js';
 import { openForm, closeForm, loadingData } from './utils.js';
-import { btnFormCardDelete, popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
-import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
-export { saveCard, addCard, initialCards };
+import { popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
+import { deleteCard, addLikeCard, deleteLikeCard, creatNewCard } from './api.js'
+export { saveCard, initialCards };
 let cardId = '';
 let removeCard = '';
 
@@ -13,29 +13,27 @@ function initialCards(cards) {
   })
 }
 function saveCard(evt) {
+  loadingData(true, mestoFormSubmit, "Сохранение...");
   evt.preventDefault();
-  loadingData(true, mestoFormSubmit, 'Сохранение...');
   const popup = evt.target.closest('.pop-up_opened');
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
-  addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
-  loadingData(false, mestoFormSubmit, 'Добавить');
-  clearForm(popup);
-};
-
-function addCard(inputLink, inputName) {
   const data = {
     name: inputName,
     link: inputLink,
   }
   creatNewCard(data)
     .then((card) => {
-      //console.log(card);
       galery.append(creatMesto(card));
     })
     .catch((err) => {
       console.error(err)
     })
+    .finally(() => {
+      setTimeout(() => { loadingData(false, mestoFormSubmit, 'Добавить') }, 3000);
+      clearForm(popup);
+    })
+
 };
 
 function creatMesto(items) {
