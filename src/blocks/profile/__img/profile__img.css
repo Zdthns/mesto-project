@@ -1,11 +1,9 @@
 .profile__img {
-  margin: 0;
+  margin: 0 auto;
   max-width: 100%;
-  object-fit: cover;
-  border-radius: 50%;
   cursor: pointer;
-}
 
+}
 
 .profile__img:hover {
   opacity: 0.3;

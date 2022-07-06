@@ -1,17 +1,10 @@
 import { clearForm, userId } from './modal.js';
 import { openForm, closeForm, loadingData } from './utils.js';
-import { btnFormCardDelete, deletOppenPopup, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
-import { deleteCard, addLikeCard, deleteLikeCard, getCards, creatNewCard } from './api.js'
-export { saveCard, addCard };
-
-//console.log(userId);
-getCards().then((cards) => {
-  initialCards(cards)
-})
-  .catch((err) => {
-    console.error(err);
-  })
-
+import { popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
+import { deleteCard, addLikeCard, deleteLikeCard, creatNewCard } from './api.js'
+export { saveCard, initialCards };
+let cardId = '';
+let removeCard = '';
 
 function initialCards(cards) {
   cards.forEach(items => {
@@ -20,28 +13,25 @@ function initialCards(cards) {
   })
 }
 function saveCard(evt) {
+  loadingData(true, mestoFormSubmit, "Сохранение...");
   evt.preventDefault();
-  loadingData(true, mestoFormSubmit, 'Сохранение...')
   const popup = evt.target.closest('.pop-up_opened');
   const inputLink = inputLinkMesto.value; // получаю содержимое инпута 
   const inputName = inputNameMesto.value;// получаю содержимое инпута
-  addCard(inputLink, inputName);// передаю содержимое инпута в функцию addCard
-  loadingData(false, mestoFormSubmit, 'Добавить');
-  clearForm(popup);
-};
-
-function addCard(inputLink, inputName) {
   const data = {
     name: inputName,
     link: inputLink,
   }
   creatNewCard(data)
     .then((card) => {
-      //console.log(card);
       galery.append(creatMesto(card));
     })
     .catch((err) => {
       console.error(err)
+    })
+    .finally(() => {
+      setTimeout(() => { loadingData(false, mestoFormSubmit, 'Добавить') }, 3000);
+      clearForm(popup);
     })
 };
 
@@ -62,6 +52,10 @@ function creatMesto(items) {
   imgCard.alt = items['name'];
   imgName.textContent = items['name'];
   likeCount.textContent = likes.length;
+
+  if (owner._id === userId) {
+    cardElement.setAttribute('id', idCard);
+  }
 
   // рисуем лайки
 
@@ -107,22 +101,16 @@ function creatMesto(items) {
   if (owner._id === userId) {
     const cardDelete = cardElement.querySelector('.card__delete');
     cardDelete.style.display = 'block';
-  }
 
-  cardDelete.addEventListener('click', evt => {
-    openForm(deletOppenPopup)
-    btnFormCardDelete.addEventListener('click', () => {
-      deleteCard(idCard)
-        .then(() => {
-          evt.target.closest('.card').remove(cardElement);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-      closeForm(deletOppenPopup);
+
+    cardDelete.addEventListener('click', evt => {
+      removeCard = evt.target.closest('.card')
+      cardId = idCard;
+      openForm(popupCardDelete);
     })
-  })
 
+
+  }
   imgCard.addEventListener('click', evt => {
     const card = evt.target;
     cardBig.src = card.src;
@@ -133,3 +121,16 @@ function creatMesto(items) {
   return cardElement;
 }
 
+popupCardDelete.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  deleteCard(cardId)
+    .then(() => {
+      galery.removeChild(removeCard);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      closeForm(popupCardDelete);
+    })
+})

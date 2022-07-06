@@ -1,6 +1,7 @@
 import { profileAvatar, profilePopup, profileTitle, profileAbout, nameInput, jobInput, avatarPopup, avatarInput, profileFormSubmit, avatarFormSubmit } from './const.js';
-import { openForm, closeForm, loadingData, upLoad } from './utils.js'
-import { getUsers, addAvatar, editUsersProfile } from './api.js';
+import { openForm, closeForm, loadingData } from './utils.js'
+import { getUsers, getCards, addAvatar, editUsersProfile } from './api.js';
+import { initialCards } from './card.js'
 
 export { handlerFormSubmit, editAvatar, copyText, closeForm, openForm, sortPopup, clearForm };
 
@@ -10,21 +11,21 @@ export let userName = '';
 export let userAbout = '';
 export let imgAvatar = '';
 
-
-getUsers()
-  .then(users => {
-    userId = users._id;
-    userName = users.name;
-    userAbout = users.about;
-    imgAvatar = users.avatar;
+Promise.all([getUsers(), getCards()])
+  .then(([user, cards]) => {
+    userId = user._id;
+    userName = user.name;
+    userAbout = user.about;
+    imgAvatar = user.avatar;
+    initialCards(cards);
   })
   .catch((err) => {
-    console.error(err);
+    console.log(err);
   })
 
 function handlerFormSubmit(evt) {
+  loadingData(true, profileFormSubmit, "Сохранение...");
   evt.preventDefault();
-  loadingData(true, profileFormSubmit, "Сохранение...")
   const data = {
     name: nameInput.value,
     about: jobInput.value,
@@ -38,22 +39,27 @@ function handlerFormSubmit(evt) {
     .catch((err) => {
       console.error(err);
     })
-    .finally(() => loadingData(false, profileFormSubmit, 'Сохранить'))
-  clearForm(profilePopup)
+    .finally(() => {
+      setTimeout(() => { loadingData(false, profileFormSubmit, 'Сохранить') }, 3000);
+      clearForm(profilePopup)
+    })
 };
 //редактор аватарки
 function editAvatar(evt) {
+  loadingData(true, avatarFormSubmit, "Сохранение...");
   evt.preventDefault();
-  loadingData(true, avatarFormSubmit, 'Сохранение...')
   const data = {
     avatar: avatarInput.value
   }
   addAvatar(data)
     .then((res) => {
       profileAvatar.src = res.avatar;
+      clearForm(avatarPopup);
     })
-  loadingData(false, avatarFormSubmit, 'Cохранить');
-  clearForm(avatarPopup);
+    .finally(() => {
+      setTimeout(() => { loadingData(false, avatarFormSubmit, 'Сохранить') }, 3000);
+    })
+
 }
 
 function copyText() {

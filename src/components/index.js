@@ -37,7 +37,6 @@ btmClosed.forEach((btm) => {
 })
 
 
-
 //submit
 profileForm.addEventListener('submit', handlerFormSubmit)
 
