@@ -1,20 +1,20 @@
 import '../pages/index.css';
 import { enableValidation } from './validate.js';
 import { handlerFormSubmit, copyText, sortPopup, editAvatar } from './modal.js';
-import { openForm } from './utils.js';
+import { openPopup } from './utils.js';
 import { saveCard } from './card.js';
-import { avatarForm, galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, btmClosed, avatarOverlay, profileAvatar, avatarPopup } from './const.js';
+import { avatarForm, galeryPopup, cardAdd, profileEdit, galeryForm, profileForm, closeButtons, avatarOverlay, profileAvatar, avatarPopup } from './const.js';
 
 
 
 // openForm
 cardAdd.addEventListener('click', evt => {
-  openForm(galeryPopup);
+  openPopup(galeryPopup);
 });
 profileEdit.addEventListener('click', copyText);
 
 avatarOverlay.addEventListener('click', evt => {
-  openForm(avatarPopup);
+  openPopup(avatarPopup);
 });
 
 profileAvatar.addEventListener('mouseover', () => {
@@ -28,7 +28,7 @@ profileAvatar.addEventListener('mouseout', () => {
 
 //closeForm
 
-btmClosed.forEach((btm) => {
+closeButtons.forEach((btm) => {
   btm.addEventListener('click', (evt) => {
     const popupElem = evt.target.closest('.pop-up_opened');
     sortPopup(popupElem);

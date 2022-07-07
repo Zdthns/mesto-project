@@ -1,26 +1,22 @@
 import { sortPopup } from './modal.js';
 
 
-function clickEsc(evt) {
+function handlerEsc(evt) {
   if (evt.key === 'Escape') {
     const elem = document.querySelector('.pop-up_opened');
     sortPopup(elem);
-    document.removeEventListener('keydown', clickEsc);
   }
 }
-function clickHandler(evt) {
+function handleOverlay(evt) {
   if (evt.target.classList.contains('pop-up')) {
     sortPopup(evt.target);
-    document.removeEventListener('click', clickHandler);
   }
 };
 
-export function openForm(popup) {
+export function openPopup(popup) {
   popup.classList.add('pop-up_opened');
-  if (popup.classList.contains('pop-up_opened')) {
-    document.addEventListener('keydown', clickEsc)
-    document.addEventListener('click', clickHandler);
-  }
+  document.addEventListener('keydown', handlerEsc)
+  document.addEventListener('click', handleOverlay);
 };
 
 export function loadingData(Loading, btn, btnDefaultText) {
@@ -32,9 +28,9 @@ export function loadingData(Loading, btn, btnDefaultText) {
 };
 
 //closes
-export function closeForm(popup) {
+export function closePopup(popup) {
   popup.classList.remove('pop-up_opened')
-  document.removeEventListener('keydown', clickEsc)
-  document.removeEventListener('click', clickHandler);
+  document.removeEventListener('keydown', handlerEsc)
+  document.removeEventListener('click', handleOverlay);
 };
 

@@ -3,7 +3,7 @@
 export const profilePopup = document.querySelector('#profile-popup');
 export const galeryPopup = document.querySelector('#galery-popup');
 export const galeryBigPopup = document.querySelector('.popup__galery-image');
-export const btmClosed = document.querySelectorAll('.pop-up__close');
+export const closeButtons = document.querySelectorAll('.pop-up__close');
 export const popupCardDelete = document.querySelector('#popupCardDelete');
 
 //button
