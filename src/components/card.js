@@ -1,15 +1,16 @@
 import { clearForm, userId } from './modal.js';
-import { openForm, closeForm, loadingData } from './utils.js';
-import { popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
+import { openPopup, closePopup, loadingData } from './utils.js';
+import { popupCardDelete, inputNameMesto, inputLinkMesto, galery, btnFormCardDelete, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
 import { deleteCard, addLikeCard, deleteLikeCard, creatNewCard } from './api.js'
-export { saveCard, initialCards };
+export { saveCard, renderInitialCards };
 let cardId = '';
 let removeCard = '';
 
-function initialCards(cards) {
+function renderInitialCards(cards) {
   cards.forEach(items => {
     const elem = creatMesto(items);
-    galery.append(elem);
+    galery.prepend(elem);// загрузка с сервера происходит в обратном порядке! 
+    // с prepend карточки будут в конце, c apend были в начале.
   })
 }
 
@@ -32,7 +33,7 @@ function saveCard(evt) {
       console.error(err)
     })
     .finally(() => {
-      setTimeout(() => { loadingData(false, mestoFormSubmit, 'Добавить') }, 3000);
+      setTimeout(() => { loadingData(false, mestoFormSubmit, 'Добавить') }, 1000);
 
     })
 };
@@ -113,7 +114,7 @@ function creatMesto(items) {
     cardDelete.addEventListener('click', evt => {
       removeCard = evt.target.closest('.card')
       cardId = idCard;
-      openForm(popupCardDelete);
+      openPopup(popupCardDelete);
     })
 
 
@@ -123,7 +124,7 @@ function creatMesto(items) {
     cardBig.src = card.src;
     cardBig.alt = card.alt;
     cardBigTitle.textContent = card.alt;
-    openForm(galeryBigPopup);
+    openPopup(galeryBigPopup);
   })
   return cardElement;
 }
@@ -133,11 +134,9 @@ popupCardDelete.addEventListener('submit', (evt) => {
   deleteCard(cardId)
     .then(() => {
       galery.removeChild(removeCard);
+      closePopup(popupCardDelete);
     })
     .catch((err) => {
       console.log(err);
-    })
-    .finally(() => {
-      closeForm(popupCardDelete);
     })
 })

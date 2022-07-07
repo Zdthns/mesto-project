@@ -1,9 +1,9 @@
 import { profileAvatar, profilePopup, profileTitle, profileAbout, nameInput, jobInput, avatarPopup, avatarInput, profileFormSubmit, avatarFormSubmit } from './const.js';
-import { openForm, closeForm, loadingData } from './utils.js'
+import { openPopup, closePopup, loadingData } from './utils.js'
 import { getUsers, getCards, addAvatar, editUsersProfile } from './api.js';
-import { initialCards } from './card.js'
+import { renderInitialCards } from './card.js'
 
-export { handlerFormSubmit, editAvatar, copyText, closeForm, openForm, sortPopup, clearForm };
+export { handlerFormSubmit, editAvatar, copyText, closePopup, openPopup, sortPopup, clearForm };
 
 
 export let userId = '';
@@ -17,14 +17,14 @@ Promise.all([getUsers(), getCards()])
     userName = user.name;
     userAbout = user.about;
     imgAvatar = user.avatar;
-    initialCards(cards);
-    getUserProfile(userName, userAbout, imgAvatar);
+    renderInitialCards(cards);
+    setUserProfile(userName, userAbout, imgAvatar);
   })
   .catch((err) => {
     console.log(err);
   })
 
-function getUserProfile(name, about, imgAvatar) {
+function setUserProfile(name, about, imgAvatar) {
   profileTitle.textContent = name;
   profileAbout.textContent = about;
   profileAvatar.src = imgAvatar;
@@ -48,7 +48,7 @@ function handlerFormSubmit(evt) {
       console.error(err);
     })
     .finally(() => {
-      setTimeout(() => { loadingData(false, profileFormSubmit, 'Сохранить') }, 3000);
+      setTimeout(() => { loadingData(false, profileFormSubmit, 'Сохранить') }, 1000);
 
     })
 };
@@ -66,7 +66,7 @@ function editAvatar(evt) {
       clearForm(avatarPopup);
     })
     .finally(() => {
-      setTimeout(() => { loadingData(false, avatarFormSubmit, 'Сохранить') }, 3000);
+      setTimeout(() => { loadingData(false, avatarFormSubmit, 'Сохранить') }, 1000);
     })
 
 }
@@ -74,14 +74,14 @@ function editAvatar(evt) {
 function copyText() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileAbout.textContent;
-  openForm(profilePopup);
+  openPopup(profilePopup);
 }
 
 function sortPopup(popupElem) {
   if (popupElem.querySelector('.form')) {
     clearForm(popupElem);
   } else {
-    closeForm(popupElem);
+    closePopup(popupElem);
   };
 };
 
@@ -98,12 +98,12 @@ function clearForm(popup) {
 
   };
 
-  const input = popup.querySelectorAll('.form__item')
-  input.forEach(elem => {
+  const inputs = popup.querySelectorAll('.form__item')
+  inputs.forEach(elem => {
     elem.classList.remove('form__input-error')// удаляем красную черту
   })
 
-  closeForm(popup);
+  closePopup(popup);
 
 }
 
