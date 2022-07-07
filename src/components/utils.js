@@ -34,5 +34,7 @@ export function loadingData(Loading, btn, btnDefaultText) {
 //closes
 export function closeForm(popup) {
   popup.classList.remove('pop-up_opened')
+  document.removeEventListener('keydown', clickEsc)
+  document.removeEventListener('click', clickHandler);
 };
 
