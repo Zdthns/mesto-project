@@ -18,10 +18,17 @@ Promise.all([getUsers(), getCards()])
     userAbout = user.about;
     imgAvatar = user.avatar;
     initialCards(cards);
+    getUserProfile(userName, userAbout, imgAvatar);
   })
   .catch((err) => {
     console.log(err);
   })
+
+function getUserProfile(name, about, imgAvatar) {
+  profileTitle.textContent = name;
+  profileAbout.textContent = about;
+  profileAvatar.src = imgAvatar;
+}
 
 function handlerFormSubmit(evt) {
   loadingData(true, profileFormSubmit, "Сохранение...");
@@ -35,15 +42,17 @@ function handlerFormSubmit(evt) {
     .then(() => {
       profileTitle.textContent = data.name;
       profileAbout.textContent = data.about;
+      clearForm(profilePopup)
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
       setTimeout(() => { loadingData(false, profileFormSubmit, 'Сохранить') }, 3000);
-      clearForm(profilePopup)
+
     })
 };
+
 //редактор аватарки
 function editAvatar(evt) {
   loadingData(true, avatarFormSubmit, "Сохранение...");

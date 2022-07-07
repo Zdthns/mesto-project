@@ -12,6 +12,7 @@ function initialCards(cards) {
     galery.append(elem);
   })
 }
+
 function saveCard(evt) {
   loadingData(true, mestoFormSubmit, "Сохранение...");
   evt.preventDefault();
@@ -25,13 +26,14 @@ function saveCard(evt) {
   creatNewCard(data)
     .then((card) => {
       galery.append(creatMesto(card));
+      clearForm(popup);
     })
     .catch((err) => {
       console.error(err)
     })
     .finally(() => {
       setTimeout(() => { loadingData(false, mestoFormSubmit, 'Добавить') }, 3000);
-      clearForm(popup);
+
     })
 };
 
@@ -53,6 +55,7 @@ function creatMesto(items) {
   imgName.textContent = items['name'];
   likeCount.textContent = likes.length;
 
+
   if (owner._id === userId) {
     cardElement.setAttribute('id', idCard);
   }
@@ -61,15 +64,19 @@ function creatMesto(items) {
 
   if (likes) {
     addLike(cardElement, likeCount, idCard);
-
-    likes.forEach((elem) => {
-      if (likes.length > 0 && idCard === userId) {
+    likes.forEach((like) => {
+      if (like._id === userId) {
+        cardLike.classList.add('card__like_activ');
+      }
+      if (like.length > 0 && idCard === userId) {
         cardLike.classList.toggle('card__like_activ');
+
       }
     })
   } else {
     likeCount.textContent = 0;
   }
+
 
   function addLike(cardElement, likeCount, idCard) {
     const cardLike = cardElement.querySelector('.card__like');
