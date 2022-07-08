@@ -1,6 +1,6 @@
 import { clearForm, userId } from './modal.js';
 import { openPopup, closePopup, loadingData } from './utils.js';
-import { popupCardDelete, inputNameMesto, inputLinkMesto, galery, btnFormCardDelete, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
+import { popupCardDelete, inputNameMesto, inputLinkMesto, galery, cardBig, galeryBigPopup, cardTemplate, cardBigTitle, mestoFormSubmit } from './const.js';
 import { deleteCard, addLikeCard, deleteLikeCard, creatNewCard } from './api.js'
 export { saveCard, renderInitialCards };
 let cardId = '';
@@ -9,8 +9,7 @@ let removeCard = '';
 function renderInitialCards(cards) {
   cards.forEach(items => {
     const elem = creatMesto(items);
-    galery.prepend(elem);// загрузка с сервера происходит в обратном порядке! 
-    // с prepend карточки будут в конце, c apend были в начале.
+    galery.append(elem);
   })
 }
 
@@ -26,7 +25,7 @@ function saveCard(evt) {
   }
   creatNewCard(data)
     .then((card) => {
-      galery.append(creatMesto(card));
+      galery.prepend(creatMesto(card));
       clearForm(popup);
     })
     .catch((err) => {
