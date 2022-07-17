@@ -55,13 +55,16 @@ function creatMesto(items) {
   imgName.textContent = items['name'];
   likeCount.textContent = likes.length;
 
+  imgCard.onerror = () => {
+    cardElement.remove();
+    console.error('упс! Картинка где то заблудилась...')
+    return
+  }
 
   if (owner._id === userId) {
     cardElement.setAttribute('id', idCard);
   }
-
   // рисуем лайки
-
   if (likes) {
     addLike(cardElement, likeCount, idCard);
     likes.forEach((like) => {
